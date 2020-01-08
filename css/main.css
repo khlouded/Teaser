@@ -29,14 +29,15 @@ html {
 body {
     background: #000;
     color: #fff;
-    font-family: 'Parabole Regular', sans-serif;
-    font-size: 
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 2em;
 }
 
 /* Main Typography */
 
 /* Main Slide Layout */
 .textbox {
-    
+
 }
 
