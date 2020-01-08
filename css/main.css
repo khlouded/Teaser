@@ -1,7 +1,18 @@
 /************************************************
 This is the styling page for the YSDN Teaser
+@font-face {
+    font-family: "parabole";
+    src: url("C:/Users/Desktop/Website/fonts/Harlow_Solid_Italic.ttf");
+}
+font-family: parabole 01, sans-serif;
 
 *************************************************/
+/* Typography Initialization */
+@font-face {
+    font-family: "parabole 01";
+    src: url("../fnts/Parabole-Regular.woff");
+    src: url("../fnts/Parabole-Regular.woff2");
+}
 /* Main Layout and init resizing */
 html {
     margin: 0;
@@ -11,5 +22,6 @@ html {
 body {
     background: #000;
     color: #fff;
+    font-family: parabole 01, sans-serif;
 }
 
