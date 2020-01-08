@@ -1,0 +1,15 @@
+/************************************************
+This is the styling page for the YSDN Teaser
+
+*************************************************/
+/* Main Layout and init resizing */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+    color: #fff;
+}
+
