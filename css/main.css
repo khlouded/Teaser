@@ -4,12 +4,19 @@ This is the styling page for the YSDN Teaser
     font-family: "parabole";
     src: url("C:/Users/Desktop/Website/fonts/Harlow_Solid_Italic.ttf");
 }
-font-family: parabole 01, sans-serif;
+font-family: 'Parabole Regular', sans-serif;
+Ratio is 0.98 to 1
+
+For parabole
+Font-size: #
+
+For Helvetica
+Font-size: calc(#*
 
 *************************************************/
 /* Typography Initialization */
 @font-face {
-    font-family: "parabole 01";
+    font-family: "Parabole Regular";
     src: url("../fnts/Parabole-Regular.woff");
     src: url("../fnts/Parabole-Regular.woff2");
 }
@@ -22,6 +29,12 @@ html {
 body {
     background: #000;
     color: #fff;
-    font-family: parabole 01, sans-serif;
+    font-family: 'Parabole Regular', sans-serif;
+    font-size: 
 }
+
+/* Main Typography */
+
+/* Main Slide Layout */
+.textbox
 
