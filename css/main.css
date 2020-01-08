@@ -36,8 +36,14 @@ body {
 
 /* Main Typography */
 
-/* Main Slide Layout */
-.textbox {
 
+/* Main Slide Layout */
+.slide {
+    position: absolute;
+    
+}
+
+.textbox {
+    position: absolute;
 }
 
