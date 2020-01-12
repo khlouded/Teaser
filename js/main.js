@@ -88,20 +88,8 @@ function navScroll() {
         } else {
             $('.sec-final').removeClass('visible-show');
         }
-
-        // Scroll effects
-        // pattern 1
-        if (wScroll == ($(".sec-one").position().top + $(".sec-one").innerHeight()) * 0.3) { 
-            console.log("heaven")
-        }
-        if (wScroll == ($(".sec-one").position().top + $(".sec-one").innerHeight()) * 0.6) { 
-            console.log("hell")
-        }
     });
-
-
-    
-};
+}
 // Navigation Logic
 function navOpen() {
     $(".arrow").click(function(){  //clicking on the menu item
@@ -137,9 +125,11 @@ function ranFont() {
         }
     });
 
-    $('.variable')
 }
 
+window.setInterval(function(){
+    ranFont()
+}, 2000);
 
 // I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
 // Useful snips document.getElementById("fontfamily").style.fontFamily;
