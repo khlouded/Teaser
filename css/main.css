@@ -7,11 +7,32 @@ This is the styling page for the YSDN Teaser
 font-family: 'Parabole Regular', sans-serif;
 Ratio is 0.98 to 1
 
-For parabole
+For Parabole
 Font-size: #
 
 For Helvetica
-Font-size: calc(#*
+Font-size: calc(# * 0.98);
+
+Instructional Notes
+    This project will mainly use flexbox as centering is great in flexbox. Keep in mind that these display types will only effect direct children, although you can apply a flexbox again
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+    Main code for flex centering
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    
+    However, for the patterns and the grids in the background, we will use CSS Grids. The main problem with CSS grids is that it doesnt work too well with content larger than the parent. Each individual grid block can contain a flex centering component for easier coding
+    https://css-tricks.com/snippets/css/complete-guide-grid/
+
+    This makes responsiveness much easier
+    
+    Main code for grid based work
+    
+
 
 *************************************************/
 /* Typography Initialization */
@@ -27,23 +48,131 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background: #000;
     color: #fff;
     font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2em;
 }
 
 /* Main Typography */
-
-
-/* Main Slide Layout */
-.slide {
-    position: absolute;
-    
+/* I will figure out some logic that will alternate or randomize the parabole and helvetica font faces */
+h1 { 
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+/*h2 {
+}
+h3 { 
+}
+p { 
+} */
+a {
+    color: #fff;
+    text-decoration: underline;
+    font-size: 1em;
 }
 
-.textbox {
-    position: absolute;
+/******************************************* Main Section Layout 
+This is the controls for each Section.
+********************************************/
+.section {
+    height: 500vH; /* This is currently just a test size */
 }
 
+/* This is for the content inside each section */
+.tagline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vW; /* I don't really trust parents so 100% isn't the best option */
+    height: 100vH;
+    box-sizing: border-box; /* This is to make sure padding doesn't fuck shit up */
+    /* dev tools */
+    background-color: #ff00ff5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tagline h1 {
+    text-align: center;
+    vertical-align: middle;
+
+}
+.pattern h1 {
+
+}
+
+
+/******************************************** Navigation
+This is just the module
+*********************************************/
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+/* Pop Up Button */
+
+.arrow {
+    width: 80px;
+    height: 80px;
+    border-right: 10px solid #fff;
+    border-top: 10px solid #fff;
+
+}
+/* Module */
+.module {
+background: #52f38850;
+}
+/* Close Button */
+.close {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.close:before,.close:after{
+    content:'';
+    position:absolute;
+    width:36px;
+    height:2px;
+    background-color:white;
+    top:16px;
+}
+.close:before {
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    transform:rotate(45deg);
+    left:2px;
+}
+.close:after {
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    right:2px;
+}
+.close:hover {
+    cursor: pointer;
+}
+/* Divider */
+.line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+/* Social in module */
+.module a {
+    display: block;
+    font-size: 18pt;
+}
