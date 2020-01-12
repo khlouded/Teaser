@@ -56,7 +56,6 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 400;
     font-size: 2em;
-    border: 1px solid orange;
     box-sizing: border-box;
 }
 
@@ -328,6 +327,8 @@ This is the controls for each Section.
     font-size: 35vw;
     font-family: 'Parabole Regular', sans-serif;
     text-align: center;
+    animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-animation: motionX 20s linear 0s infinite forwards ;
 }
 .pat-two .com-top {
     top:0;
@@ -370,6 +371,8 @@ This is the controls for each Section.
     padding: 0;
     -webkit-text-stroke: 1px #fff;
     color: #ffffff00;
+    animation: motionY 20s linear 0s infinite forwards ;
+    -webkit-animation: motionY 20s linear 0s infinite forwards ;
     /* line-height:-10em; */
     /* letter-spacing: -50pt; */
 }
@@ -403,7 +406,6 @@ This is the controls for each Section.
     grid-template-columns: [left] 2fr [right] 1fr;
     pointer-events: all !important;
 }
-
 .tag-four .social-content {
     grid-row: bottom;
     grid-column: right;
@@ -422,4 +424,60 @@ This is the controls for each Section.
     border-bottom: none;
     grid-row: location;
     grid-column: left;
+}
+.pat-four {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: 100vH;
+}
+.pat-four .comp {
+    margin-left: 50vH;
+    font-size: 15vw;
+    -webkit-text-stroke: .5px #fff;
+    color: #ffffff00;
+    transform: translateX(0);
+}
+.pat-four .comp h1{
+
+    animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-animation: motionX 20s linear 0s infinite forwards ;
+}
+@-webkit-keyframes motionX {
+    from {
+        transform: translateX(-200px);
+        }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+  /* Standard syntax */
+@keyframes motionX {
+    from {
+        transform: translateX(-200px);
+        }
+    to {
+        transform: translateX(200px);
+    }
+}
+@-webkit-keyframes motionY {
+    from {
+        transform: translateY(200px);
+        }
+    to {
+        transform: translateY(-200px);
+    }
+}
+
+  /* Standard syntax */
+@keyframes motionY {
+    from {
+        transform: translateY(200px);
+        }
+    to {
+        transform: translateY(-200px);
+    }
 }

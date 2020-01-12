@@ -78,13 +78,16 @@ function navScroll() {
             $('.sec-three').removeClass('visible-show');
         }
         //If the scroll position is passed the bottom of section three (THIS IS SECTION FOUR)
-        if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+        if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Three");
             
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
             var element4 = Math.abs(wScroll - $(".sec-final").position().top);
             console.log(element4  + " break four");
+            $('.com-center').css({ 
+                'transform':'translateX(' + -element4 + 'px) '// testing transform movement
+            });
         } else {
             $('.sec-final').removeClass('visible-show');
         }
