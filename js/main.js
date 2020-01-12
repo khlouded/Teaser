@@ -8,7 +8,7 @@ function navScroll() {
     $(window).scroll(function() {//adding a scroll function to the window therefore when ever you scroll the window it will activate the contents of this function
         var wScroll = $(window).scrollTop(); // a variable that is a number that describes how far you have scrolled
         
-        console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
+        // console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
 
             //Visibility Logic
             //This uses breakpoints of each section. When we scroll to one section, then the display of the other section would show up or dissapear. I need to decide weather the breakpoints are based on the end or the start of a section, as if it's display: none, then that section might not exists in the DOM
@@ -16,38 +16,62 @@ function navScroll() {
         //Breakpoints
         //Section One
         var windowHeight = window.innerHeight;
+        var scrollTop = $('body').scrollTop();
         // For percentage of scroll I can just multiply by that value so 50% = *.5 or 90% = *.9
-
+        
         // If the scroll position is passed the bottom of section one
         // With this method, we have the space of the windowHeight inbetween each transition. Hopefully it's not noticeable
-        if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) ) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) ) {
+            $('.com-mid').css({ 
+                'transform':'translateX(' + wScroll + 'px)'// testing transform movement
+            });
+            var element1 = scrollTop - $(".sec-one").position().top;
+            console.log(element1 + " break one");
+            // console.log(element);
+        } else {
+
+        }
+
+        if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight())) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Two");
             $('.sec-one').removeClass('visible-show');
             $('.sec-two').addClass('visible-show');
+            var element2 = scrollTop - $(".sec-two").position().top;
+            console.log(element2 + " break two");
         } else {
             // console.log("Section-One");
             $('.sec-one').addClass('visible-show');
             $('.sec-two').removeClass('visible-show');
         }
         // If the scroll position is passed the bottom of section two
-        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Three");
             $('.sec-two').removeClass('visible-show');
             $('.sec-three').addClass('visible-show');
+            var element3 = scrollTop - $(".sec-three").position().top;
+            console.log(element3 + " break three");
         } else {
             $('.sec-three').removeClass('visible-show');
         }
+        //If the scroll position is passed the bottom of section three
         if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Three");
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
+            var element4 = scrollTop - $(".sec-final").position().top;
+            console.log(element4  + " break four");
         } else {
             $('.sec-final').removeClass('visible-show');
         }
 
-
         // Scroll effects
         // pattern 1
+        if (wScroll == ($(".sec-one").position().top + $(".sec-one").innerHeight()) * 0.3) { 
+            console.log("heaven")
+        }
+        if (wScroll == ($(".sec-one").position().top + $(".sec-one").innerHeight()) * 0.6) { 
+            console.log("hell")
+        }
     });
 
 
@@ -87,14 +111,14 @@ function ranFont() {
             // console.log("Parabole")
         }
     });
+
+    $('.variable')
 }
 
 
 // I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
 // Useful snips document.getElementById("fontfamily").style.fontFamily;
 // https://stackoverflow.com/questions/21862759/how-do-i-generate-a-random-font-to-a-line-of-text-every-time-page-is-refreshed
-
-
 
 
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly

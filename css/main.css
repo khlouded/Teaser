@@ -226,7 +226,7 @@ This is the controls for each Section.
     /* This is currently just a test size */
     display: flex;
     visibility: hidden;
-    height: 500vH;
+    height: 400vH;
     pointer-events: none;
 }
 /* This item is to create an empty element for spacing */
@@ -282,7 +282,7 @@ This is the controls for each Section.
     position: absolute;
     margin: 0;
     padding: 0;
-    font-size: 45vw;
+    font-size: 40vw;
     font-family: 'Parabole Regular', sans-serif;
     text-align: center;
 }
@@ -298,9 +298,16 @@ This is the controls for each Section.
 .com-bot h1 {
     top: -50%;
 }
+.pat-one .com-mid {
+    justify-content: center;
+    height: 100%;
+    color: #ffffff00;
+    -webkit-text-stroke: .1px #fff;
+    transform: translateX(0);
+}
+
 /* Section Two */
 .sec-two {
-    background: green;
 }
 .pat-two {
     display: flex;
@@ -322,8 +329,12 @@ This is the controls for each Section.
     padding: 0;
     -webkit-text-stroke: 1px #fff;
     color: #ffffff00;
+    /* line-height:-10em; */
+    /* letter-spacing: -50pt; */
 }
-
+.pat-two .variable span {
+    margin: -30px;
+}
 /* JS functions */
 /* Opening pop up module */
 .visible-show {
