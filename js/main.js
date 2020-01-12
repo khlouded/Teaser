@@ -14,7 +14,7 @@ function navScroll() {
 
         //Breakpoints
         //Section One
-        var windowHeight = window.innerHeight;
+        // var windowHeight = window.innerHeight;
         // For percentage of scroll I can just multiply by that value so 50% = *.5 or 90% = *.9
         
         // If the scroll position is passed the bottom of section one
