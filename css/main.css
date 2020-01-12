@@ -5,6 +5,7 @@ This is the styling page for the YSDN Teaser
     src: url("C:/Users/Desktop/Website/fonts/Harlow_Solid_Italic.ttf");
 }
 font-family: 'Parabole Regular', sans-serif;
+font-family: 'Helvetica Neue', sans-serif;
 Ratio is 0.98 to 1
 
 For Parabole
@@ -62,7 +63,7 @@ body {
 h1 { 
     text-transform: uppercase;
     font-size: 1.7em;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 5px;
 }
 h2 {
@@ -80,45 +81,6 @@ a {
     font-size: 1em;
     font-weight: 300;
 }
-
-/******************************************* Main Section Layout 
-This is the controls for each Section.
-********************************************/
-.section {
-    height: 500vH; /* This is currently just a test size */
-}
-/* This item is to create an empty element for spacing */
-.space {
-    display: block;
-    flex: 1;
-}
-/* This is for the content inside each section */
-.tagline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100vW; /* I don't really trust parents so 100% isn't the best option */
-    height: 100vH;
-    box-sizing: border-box; /* This is to make sure padding doesn't fuck shit up */
-    z-index: 10;
-    /* dev tools background-color: #ff00ff5e; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.tagline h1 {
-    text-align: center;
-    vertical-align: middle;
-
-}
-.pattern h1 {
-
-}
-
-
 /******************************************** Navigation
 This is just the module
 Most of these tags would be the same as the final page
@@ -176,15 +138,12 @@ nav {
     justify-items: start;
     align-items: start;
     grid-template-rows: [top] 4fr [location] 1fr [mail] 1fr [bottom]1fr;
+    grid-template-columns: 1fr;
     z-index: 1001;
     right: -450px;
     transition: right .6s ease-in-out  ;
 }
-/* JS functions */
-/* Opening pop up module */
-.visible-grid {
-    right: 0;
-}
+
 /* Close Button */
 .close {
     width: 40px;
@@ -234,7 +193,6 @@ nav {
     flex-grow: 1;
     margin-bottom: 30px;
 }
-/* Divider */
 /* Location */
 .location {
     padding-bottom: 40px;
@@ -246,9 +204,161 @@ nav {
     padding: 0;
 }
 /* Social in module */
-.module a {
-    width: auto;
+.social, .mail {
     display: block;
     font-size: 18pt;
     margin-bottom: 5px;
+    margin-right: 30px;
+}
+/* JS functions */
+/* Opening pop up module */
+.visible-grid {
+    right: 0;
+}
+/*************************************
+This is the end of the Navigation edits 
+************************************/
+
+/******************************************* Main Section Layout 
+This is the controls for each Section.
+********************************************/
+.section {
+    /* This is currently just a test size */
+    display: flex;
+    visibility: hidden;
+    height: 500vH;
+    pointer-events: none;
+}
+/* This item is to create an empty element for spacing */
+.space {
+    display: block;
+    flex: 1;
+}
+/* This is for the content inside each section */
+.tagline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vW; /* I don't really trust parents so 100% isn't the best option */
+    height: 100vH;
+    box-sizing: border-box; /* This is to make sure padding doesn't fuck shit up */
+    z-index: 10;
+    /* dev tools background-color: #ff00ff5e; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.tagline h1 {
+    text-align: center;
+    vertical-align: middle;
+}
+.pattern {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Section One */
+.pat-one {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+.pat-one .comp {
+    position: absolute;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.pat-one .comp h1 {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 45vw;
+    font-family: 'Parabole Regular', sans-serif;
+    text-align: center;
+}
+.com-top {
+    top:0;
+}
+.com-top h1 {
+    bottom: -50%;
+}
+.com-bot {
+    bottom: 0;
+}
+.com-bot h1 {
+    top: -50%;
+}
+/* Section Two */
+.sec-two {
+    background: green;
+}
+.pat-two {
+    display: flex;
+}
+.pat-two .comp {
+    position:absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    margin-top: 100vH;
+}
+.pat-two .comp h1 {
+    font-size: 55vw;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke: 1px #fff;
+    color: #ffffff00;
+}
+
+/* JS functions */
+/* Opening pop up module */
+.visible-show {
+    visibility: visible !important;
+    pointer-events: all !important;
+}
+/* Final Page Output */
+.tag-four {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40px;
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    grid-template-rows: [top] 1fr [location] 4fr [mail] 1fr [bottom]1fr;
+    grid-template-columns: [left] 2fr [right] 1fr;
+    pointer-events: all !important;
+}
+
+.tag-four .social-content {
+    grid-row: bottom;
+    grid-column: right;
+    justify-self: end;
+    align-self: end;
+}
+.tag-four .social {
+    display: inline-block;
+}
+.tag-four .mail {
+    grid-row: bottom;
+    grid-column: left;
+    align-self: end;
+}
+.tag-four .location {
+    border-bottom: none;
+    grid-row: location;
+    grid-column: left;
 }

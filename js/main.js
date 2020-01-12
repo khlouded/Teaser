@@ -1,7 +1,7 @@
 
 // general use notes  Put each logic section into a class and then output that class in the following
 // 
-console.log("working")// verification
+// console.log("working")// verification
 
 //Scroll Logic
 function navScroll() {
@@ -9,10 +9,49 @@ function navScroll() {
         var wScroll = $(window).scrollTop(); // a variable that is a number that describes how far you have scrolled
         
         console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
+
+            //Visibility Logic
+            //This uses breakpoints of each section. When we scroll to one section, then the display of the other section would show up or dissapear. I need to decide weather the breakpoints are based on the end or the start of a section, as if it's display: none, then that section might not exists in the DOM
+
+        //Breakpoints
+        //Section One
+        var windowHeight = window.innerHeight;
+        // For percentage of scroll I can just multiply by that value so 50% = *.5 or 90% = *.9
+
+        // If the scroll position is passed the bottom of section one
+        // With this method, we have the space of the windowHeight inbetween each transition. Hopefully it's not noticeable
+        if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) ) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+            // console.log("Section-Two");
+            $('.sec-one').removeClass('visible-show');
+            $('.sec-two').addClass('visible-show');
+        } else {
+            // console.log("Section-One");
+            $('.sec-one').addClass('visible-show');
+            $('.sec-two').removeClass('visible-show');
+        }
+        // If the scroll position is passed the bottom of section two
+        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+            // console.log("Section-Three");
+            $('.sec-two').removeClass('visible-show');
+            $('.sec-three').addClass('visible-show');
+        } else {
+            $('.sec-three').removeClass('visible-show');
+        }
+        if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+            // console.log("Section-Three");
+            $('.sec-three').removeClass('visible-show');
+            $('.sec-final').addClass('visible-show');
+        } else {
+            $('.sec-final').removeClass('visible-show');
+        }
+
+
+        // Scroll effects
+        // pattern 1
     });
 
-    //Visibility Logic
-    //This uses breakpoints of each section. When we scroll to one section, then the display of the other section would show up or dissapear. I need to decide weather the breakpoints are based on the end or the start of a section, as if it's display: none, then that section might not exists in the DOM
+
+    
 };
 // Navigation Logic
 function navOpen() {
@@ -25,6 +64,32 @@ function navOpen() {
 }
 
 // Random font family
+
+function ranFont() {
+    $(".variable").lettering(); // this breaks the text up into spans, with classes (in css we can target even or odd with :nth-child(even))
+
+    $(".variable span").each(function(){
+        var helvetica = "Helvetica Neue Lt Std"; // check to see what it is actually called once we get the fonts
+        var parabole = 'Parabole Regular';
+        var fonts = [helvetica, parabole]; //an array with the different possible fonts
+        var randomFont = fonts[Math.floor(Math.random()*fonts.length)]; //This spits out a random choice between helvetica and parabole
+        var currentElement = $(this); //this targets every current element, and iterates it from the first to the last. Since we used lettery
+        var size = currentElement.css("font-size"); // this gets the size of the element so that we can manipulate it later
+        // console.log(size);
+
+        currentElement.css("font-family", randomFont + ", sans serif");//This sets the css property with the randomFont. The bread and butter of the function
+
+        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans serif"  ) {
+            // console.log("Helvetica");
+            currentElement.css({'font-size':"calc( " + size + " * 0.98)"});
+        } else {
+            currentElement.css('font-size',size);
+            // console.log("Parabole")
+        }
+    });
+}
+
+
 // I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
 // Useful snips document.getElementById("fontfamily").style.fontFamily;
 // https://stackoverflow.com/questions/21862759/how-do-i-generate-a-random-font-to-a-line-of-text-every-time-page-is-refreshed
@@ -41,4 +106,10 @@ $(window).scroll(function() {
 $(document).ready(function() {
     navScroll();
     navOpen();
+    ranFont();
+});
+$(window).resize(function() {
+    navScroll();
+    navOpen();
+    ranFont();
 });
