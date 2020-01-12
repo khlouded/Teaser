@@ -65,16 +65,20 @@ h1 {
     font-weight: 500;
     letter-spacing: 5px;
 }
-/*h2 {
-}
-h3 { 
+h2 {
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: 300;
 }
 p { 
-} */
+    font-size: 18pt;
+    font-weight: 300;
+}
 a {
     color: #fff;
     text-decoration: underline;
     font-size: 1em;
+    font-weight: 300;
 }
 
 /******************************************* Main Section Layout 
@@ -83,7 +87,11 @@ This is the controls for each Section.
 .section {
     height: 500vH; /* This is currently just a test size */
 }
-
+/* This item is to create an empty element for spacing */
+.space {
+    display: block;
+    flex: 1;
+}
 /* This is for the content inside each section */
 .tagline {
     position: fixed;
@@ -93,11 +101,12 @@ This is the controls for each Section.
     width: 100vW; /* I don't really trust parents so 100% isn't the best option */
     height: 100vH;
     box-sizing: border-box; /* This is to make sure padding doesn't fuck shit up */
-    /* dev tools */
-    background-color: #ff00ff5e;
+    z-index: 10;
+    /* dev tools background-color: #ff00ff5e; */
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 
 .tagline h1 {
@@ -112,7 +121,9 @@ This is the controls for each Section.
 
 /******************************************** Navigation
 This is just the module
+Most of these tags would be the same as the final page
 *********************************************/
+/* Positioning */
 nav {
     position: fixed;
     top: 0;
@@ -120,26 +131,73 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
+    z-index: 1000;
 }
 /* Pop Up Button */
-
 .arrow {
+    position: relative;
+    margin: 30px;
     width: 80px;
     height: 80px;
     border-right: 10px solid #fff;
     border-top: 10px solid #fff;
-
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform .5s;
+}
+.arrow:hover {
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+.arrow:before {
+    content:'';
+    position:absolute;
+    width:100px;
+    height:10px;
+    background-color:white;
+    top:-7px;
+    right:0px;
+    transform-origin: top right;
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    transform:rotate(-45deg);
 }
 /* Module */
 .module {
-background: #52f38850;
+    background: #000;
+    position: fixed;
+    width: 450px;
+    padding: 40px;
+    height: 100vH;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    grid-template-rows: [top] 4fr [location] 1fr [mail] 1fr [bottom]1fr;
+    z-index: 1001;
+    right: -450px;
+    transition: right .6s ease-in-out  ;
+}
+/* JS functions */
+/* Opening pop up module */
+.visible-grid {
+    right: 0;
 }
 /* Close Button */
 .close {
     width: 40px;
     height: 40px;
     position: relative;
+    flex: none;
+    transition: transform .5s;
+}
+
+.close:hover {
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    transform:rotate(90deg);
 }
 .close:before,.close:after{
     content:'';
@@ -164,15 +222,33 @@ background: #52f38850;
 .close:hover {
     cursor: pointer;
 }
+/* Title */
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between ;
+    align-items: flex-start;
+}
+.title h2 {
+    margin: 0;
+    flex-grow: 1;
+    margin-bottom: 30px;
+}
 /* Divider */
-.line {
-    position: relative;
-    height: 1px;
-    width: 100%;
+/* Location */
+.location {
+    padding-bottom: 40px;
     border-bottom: 1px solid #fff;
+    width: 100%;
+}
+.location p {
+    margin: 0;
+    padding: 0;
 }
 /* Social in module */
 .module a {
+    width: auto;
     display: block;
     font-size: 18pt;
+    margin-bottom: 5px;
 }

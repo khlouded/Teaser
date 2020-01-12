@@ -14,24 +14,26 @@
 </head>
 <body>
     <!-- Each section would be defined by section and labeled using a multitude of classes. The parent class is section -->
-    <nav>
-        <div class="arrow">
-        </div>
-        <div class="module">
-            <div class="textbox">
-                <div class="close"></div>
-                
-
-
-                <div class="line"></div><!--Instead of HR, I'm gonna use a div so it's a bit easier to control  -->
-                <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
-                <a class="social">Facebook</a>
-                <a class="social">Twitter</a>
-                <a class="social">Linkedin</a>
-            </div>
-        </div>
-
+    <nav class="nav-arrow">
+        <div class="arrow"></div>
     </nav>
+    <nav class="module">
+        <div class="title"> <!-- Every time i think there will be a conflicting class I try to be more specific -->
+            <h2>York university &#47; Sheridan College graduating Showcase</h2>
+            <div class="close"></div>
+        </div>
+        <div class="location">
+            <p>April 13-14</p>
+            <p>Location TBD</p>
+        </div>
+        <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
+        <div class="social-content">
+            <a class="social">Facebook</a>
+            <a class="social">Twitter</a>
+            <a class="social">Linkedin</a>
+        </div>
+    </nav>
+    <!-- This is where the actual content is located -->
     <div class="section sec-one">
         <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-one">
