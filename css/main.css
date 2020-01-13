@@ -100,14 +100,13 @@ h2 {
 p { 
     font-size: 18pt;
     font-weight: 400;
-    text-transform: uppercase;
 }
 a {
     color: #fff;
     text-decoration: underline;
     font-size: 1em;
     font-weight: 300;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 /******************************************** Navigation
 This is just the module
