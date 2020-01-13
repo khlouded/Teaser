@@ -16,14 +16,7 @@ function navScroll() {
         // With this method, we have the space of the windowHeight inbetween each transition. Hopefully it's not noticeable
         // If the scroll position is passed the bottom of start (THIS IS SECTION ONE)
 
-        //10% into the first section, the word scroll will dissappear
-        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
-            $('.tagline p').removeClass('no-opacity');
-        } else {
-            $('.tagline p').addClass('no-opacity');
-        }
-
-
+        //Main visibility logic and pattern logic
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) ) {
             $('.sec-one').addClass('visible-show');
             var element1 = Math.abs(wScroll - $(".sec-one").position().top);
@@ -85,6 +78,44 @@ function navScroll() {
             });
         } else {
             $('.sec-final').removeClass('visible-show');
+        }
+
+        //additional animations
+        //10% into the first section, the word scroll will dissappear
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
+            $('.tagline p').removeClass('no-opacity');
+        } else {
+            $('.tagline p').addClass('no-opacity');
+        }
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95) { // This statement is inbetween .95 of section one and the bottom of section one
+            var element1 = Math.abs(wScroll - (($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else if (  wScroll >= ($(".sec-two").position().top) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05)) { //this statement is inbetween the top of section 2 and .05 of section 2
+            var element1 = Math.abs(wScroll - ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05));
+            $('.tagline').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
+            });
+        } else if (wScroll <= $(".sec-two").position().top + $(".sec-two").innerHeight() && wScroll >= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
+            var element1 = Math.abs(wScroll - (($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else if (  wScroll >= ($(".sec-three").position().top) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05)) { //this statement is inbetween the top of section 3 and .05 of section 3
+            var element1 = Math.abs(wScroll - ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05));
+            $('.tagline').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
+            });
+        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
+            var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else {
+            $('.tagline').css({ 
+                'transform':'translateY(0px)'// testing transform movement
+            });
         }
 }
 // Navigation Logic

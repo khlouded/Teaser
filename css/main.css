@@ -253,8 +253,8 @@ This is the controls for each Section.
 .section {
     display: flex;
     visibility: hidden;
-    height: 250vW; /* MAKE RESPONSIVE This height is too long for different widths*/
-    min-height: 250vW;
+    height: 200vW; /* MAKE RESPONSIVE This height is too long for different widths*/
+    min-height: 200vW;
     max-width: 100%;
     pointer-events: none;
     padding: 0;
