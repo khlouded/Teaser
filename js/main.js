@@ -1,8 +1,3 @@
-
-// general use notes  Put each logic section into a class and then output that class in the following
-// 
-// console.log("working")// verification
-
 //Scroll Logic
 function navScroll() {
     //therefore when ever you scroll the window it will activate the contents of this function
@@ -21,22 +16,23 @@ function navScroll() {
         // With this method, we have the space of the windowHeight inbetween each transition. Hopefully it's not noticeable
         // If the scroll position is passed the bottom of start (THIS IS SECTION ONE)
 
+        //10% into the first section, the word scroll will dissappear
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
             $('.tagline p').removeClass('no-opacity');
         } else {
             $('.tagline p').addClass('no-opacity');
         }
+
+
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) ) {
             $('.sec-one').addClass('visible-show');
             var element1 = Math.abs(wScroll - $(".sec-one").position().top);
-            console.log(element1 + " break one");
-            // console.log(element);
+            // console.log(element1 + " break one");
         } else {
             $('.sec-one').removeClass('visible-show');
         }
         // If the scroll position is passed the bottom of section one (THIS IS SECTION TWO)
         if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight())) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
-            // console.log("Section-Two");
             $('.sec-one').removeClass('visible-show');
             $('.sec-two').addClass('visible-show');
             $('.com-mid').css({ 
@@ -49,9 +45,8 @@ function navScroll() {
                 'transform':'translateX(' + -wScroll/2 + 'px)'// testing transform movement
             });
             var element2 = Math.abs(wScroll - $(".sec-two").position().top);
-            console.log(element2 + " break two");
+            // console.log(element2 + " break two");
         } else {
-            // console.log("Section-One");
             $('.sec-two').removeClass('visible-show');
         }
         // If the scroll position is passed the bottom of section two (THIS IS SECTION THREE)
@@ -60,7 +55,7 @@ function navScroll() {
             $('.sec-two').removeClass('visible-show');
             $('.sec-three').addClass('visible-show');
             var element3 = Math.abs(wScroll - $(".sec-three").position().top);
-            console.log(element3 + " break three");
+            // console.log(element3 + " break three");
             //upside down
             $('.com-mleft').css({ 
                 'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
@@ -84,7 +79,7 @@ function navScroll() {
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
             var element4 = Math.abs(wScroll - $(".sec-final").position().top);
-            console.log(element4  + " break four");
+            // console.log(element4  + " break four");
             $('.com-center').css({ 
                 'transform':'translateX(' + -element4 + 'px) '// testing transform movement
             });
@@ -126,7 +121,6 @@ function ranFont() {
             // console.log("Parabole")
         }
     });
-
 }
 
 
@@ -135,20 +129,23 @@ function strokeFont()  {
     $(".stroke span").each(function(){
         var stroke = "#ffffff00";
         var fill = "#fff";
-        var style = [stroke, fill];
+        var style = [stroke, fill, fill];
         var randomStyle = style[Math.floor(Math.random()*style.length)];
     
         var currentElement = $(this);
         currentElement.css("color", randomStyle);
-
-        // if (currentElement.css("color") == "#ffffff00" || currentElement.css("color") == stroke ) {
-        //     currentElement.css("-webkit-text-stroke","1px #fff");
-        // } else {
-        //     currentElement.css("-webkit-text-stroke", "none");
-            
-        // }
     });
-
+}
+function ranColor()  {
+    $(".invert").each(function(){
+        var stroke = "#ffffff00";
+        var fill = "#fff";
+        var style = [stroke, fill];
+        var randomStyle = style[Math.floor(Math.random()*style.length)];
+    
+        var currentElement = $(this);
+        currentElement.css("background-color", randomStyle);
+    });
 }
 // window.setInterval(function(){
 //     ranFont()
@@ -163,6 +160,7 @@ function strokeFont()  {
 $(window).scroll(function() {
     navScroll();
     navOpen();
+   
 });
 
 $(document).ready(function() {
@@ -170,10 +168,12 @@ $(document).ready(function() {
     navOpen();
     ranFont();
     strokeFont();
+    ranColor();
 });
 $(window).resize(function() {
     navScroll();
     navOpen();
     ranFont();
     strokeFont();
+    ranColor();
 });

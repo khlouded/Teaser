@@ -14,6 +14,34 @@
 </head>
 <body>
     <!-- Each section would be defined by section and labeled using a multitude of classes. The parent class is section -->
+    <!-- 
+        HOW THIS WORKS (Delete after completing)
+        NAVIGATION
+        The navigation is not hidden, it's just pushed all the way to the right and is revealed at a certain pixel amount. for desktop the width is set to 450px, which is the same as the position it is moved to the right. This accounts for preloading and transitions. 
+
+        As you click on the arrow div, this will add the class .visible-grid to the module, making it appear in the right spot
+
+        for responsiveness, I want you to change the width to 100% in the mobile version of the module and to take away the border line. This
+
+        PATTERNS
+        Each section is either the ending or different pattern
+
+        RESPONSIVENESS
+        Everything is fine up until 480px, where it starts to degrade.
+
+        This should be responsive on every device so instead of taking a bunch of breakpoints online,set your own depending on the content. Check each browser width and see if it all works at any size. Also the height of each pattern should change to do this change SECTION
+
+        There is a problem with the margins on pattern 1
+        Set a breakpoint for desktop (which is larger than everything) and reiterate the changes you made on the other breakpoints
+
+        
+
+        For the Logic, there isn't much that we need to change so you don't really need to mess with the JS
+
+        The pattern text size is defined by View Width. If this doesn't work for you in the mobile section you can always change it
+    -->
+    <div class="invert"></div>
+    <!-- this invert will change the black and white randomly, so when you enter the site it might be white or it might be black -->
     <nav class="nav-arrow">
         <div class="arrow"></div>
     </nav>
@@ -29,8 +57,7 @@
         <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
         <div class="social-content">
             <a class="social">Facebook</a>
-            <a class="social">Twitter</a>
-            <a class="social">Linkedin</a>
+            <a class="social">Instagram</a>
         </div>
     </nav>
 
@@ -68,10 +95,10 @@
 
         <div class="pattern pat-three">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
-            <div class="comp com-left"><h1 class="variable">20202020202020202020</h1></div>
+            <div class="comp com-left"><h1 class="variable stroke">20202020202020202020</h1></div>
             <div class="comp com-mleft"><h1 class="variable">20202020202020202020</h1></div>
             <div class="comp com-mright"><h1 class="variable">20202020202020202020</h1></div>
-            <div class="comp com-right"><h1 class="variable">20202020202020202020</h1></div>
+            <div class="comp com-right"><h1 class="variable stroke">20202020202020202020</h1></div>
         </div>
     </div>
     <div class="section sec-final">
@@ -86,9 +113,8 @@
             </div>
             <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
             <div class="social-content">
-                <a class="social">Facebook</a>
-                <a class="social">Twitter</a>
-                <a class="social">Linkedin</a>
+                <a class="social" href="https://www.instagram.com/ysdn2020">Facebook</a>
+                <a class="social" href="https://www.instagram.com/ysdn2020">Instagram</a>
             </div>
         </div>
 

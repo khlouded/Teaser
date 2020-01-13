@@ -42,6 +42,11 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.woff");
     src: url("../fnts/Parabole-Regular.woff2");
 }
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff");
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff2");
+}
 /* Main Layout and init resizing */
 html {
     margin: 0px;
@@ -90,17 +95,19 @@ h1 {
 h2 {
     text-transform: uppercase;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 400;
 }
 p { 
     font-size: 18pt;
-    font-weight: 300;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 a {
     color: #fff;
     text-decoration: underline;
     font-size: 1em;
     font-weight: 300;
+    text-transform: uppercase;
 }
 /******************************************** Navigation
 This is just the module
@@ -114,7 +121,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    z-index: 1000;
+    z-index: 100;
 }
 /* Pop Up Button */
 .arrow {
@@ -160,7 +167,7 @@ nav {
     align-items: start;
     grid-template-rows: [top] 4fr [location] 1fr [mail] 1fr [bottom]1fr;
     grid-template-columns: 1fr;
-    z-index: 1001;
+    z-index: 101;
     right: -450px;
     transition: right .6s ease-in-out  ;
 }
@@ -245,11 +252,10 @@ This is the end of the Navigation edits
 This is the controls for each Section.
 ********************************************/
 .section {
-    /* This is currently just a test size */
     display: flex;
     visibility: hidden;
-    height: 400vH;
-    min-height: 400vH;
+    height: 250vW; /* MAKE RESPONSIVE This height is too long for different widths*/
+    min-height: 250vW;
     max-width: 100%;
     pointer-events: none;
     padding: 0;
@@ -317,15 +323,14 @@ This is the controls for each Section.
     text-orientation: upright;
     margin: 0;
     padding: 0;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
     /* line-height:-10em; */
     /* letter-spacing: -50pt; */
 }
 .pat-one .variable span {
-    margin: -12vh;
+    margin: -10vw ; 
 }
-
 
 /* Section Two */
 .pat-two {
@@ -350,7 +355,7 @@ This is the controls for each Section.
     text-align: center;
     animation: motionX 20s linear 0s infinite forwards ;
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: .5px #fff;
 }
 .pat-two .com-top {
     top:0;
@@ -370,7 +375,7 @@ This is the controls for each Section.
     justify-content: center;
     height: 100%;
     color: #ffffff00;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: .5px #fff;
     transform: translateX(0);
 }
 /* Pattern Three */
@@ -395,7 +400,7 @@ This is the controls for each Section.
     text-orientation: upright;
     margin: 0;
     padding: 0;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
     animation: motionY 20s linear 0s infinite forwards ;
     -webkit-animation: motionY 20s linear 0s infinite forwards ;
@@ -411,7 +416,7 @@ This is the controls for each Section.
     transform: translateY(0) rotate(180deg);
 }
 .pat-three .variable span {
-    margin: -100px;
+    margin:  -5vw ;
 }
 
 /* JS functions */
@@ -470,6 +475,20 @@ This is the controls for each Section.
 
     animation: motionX 20s linear 0s infinite forwards ;
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
+}
+/* This inverts the color of the screen */
+.invert {
+    position: fixed;
+    width: 100vW;
+    height:100vH;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    pointer-events: none;
+    z-index: 200;
+    mix-blend-mode: difference;
 }
 @-webkit-keyframes motionX {
     from {
