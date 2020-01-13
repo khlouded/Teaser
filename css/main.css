@@ -46,10 +46,14 @@ Instructional Notes
 html {
     margin: 0px;
     padding: 0px;
+    --scrollbarBG: #00000000;
+    --thumbBG: #fff;
 }
 
 body {
     margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
     padding: 0;
     background: #000;
     color: #fff;
@@ -57,6 +61,22 @@ body {
     font-weight: 400;
     font-size: 2em;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #fff #00000000;
+}
+/* Custom Scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track {
+    background: #00000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 0px;
+    border: none;
 }
 
 /* Main Typography */
@@ -216,6 +236,7 @@ nav {
 .visible-grid {
     right: 0;
 }
+
 /*************************************
 This is the end of the Navigation edits 
 ************************************/
@@ -229,11 +250,10 @@ This is the controls for each Section.
     visibility: hidden;
     height: 400vH;
     min-height: 400vH;
-    max-height: 400vH;
+    max-width: 100%;
     pointer-events: none;
     padding: 0;
     margin: 0;
-   
 }
 /* This item is to create an empty element for spacing */
 .space {
@@ -271,13 +291,14 @@ This is the controls for each Section.
     opacity: 0;
 }
 .pattern {
-    position: relative;
     top: 0;
     width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* Section One */
@@ -302,7 +323,7 @@ This is the controls for each Section.
     /* letter-spacing: -50pt; */
 }
 .pat-one .variable span {
-    margin: -170px;
+    margin: -12vh;
 }
 
 
@@ -329,6 +350,7 @@ This is the controls for each Section.
     text-align: center;
     animation: motionX 20s linear 0s infinite forwards ;
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-text-stroke: 1px #fff;
 }
 .pat-two .com-top {
     top:0;
@@ -352,7 +374,11 @@ This is the controls for each Section.
     transform: translateX(0);
 }
 /* Pattern Three */
+.sec-three {
+    position: relative;
+}
 .pat-three {
+    position: absolute;
     display: grid;
     width: 100vW;
     grid-template-columns: [left] 1fr [mleft] 1fr [mright] 1fr [right] 1fr;

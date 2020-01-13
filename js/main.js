@@ -5,7 +5,7 @@
 
 //Scroll Logic
 function navScroll() {
-    $(window).scroll(function() {//adding a scroll function to the window therefore when ever you scroll the window it will activate the contents of this function
+    //therefore when ever you scroll the window it will activate the contents of this function
         var wScroll = $(window).scrollTop(); // a variable that is a number that describes how far you have scrolled
         
         // console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
@@ -63,16 +63,16 @@ function navScroll() {
             console.log(element3 + " break three");
             //upside down
             $('.com-mleft').css({ 
-                'transform':'translateY(' + element3*3 + 'px)  rotate(180deg)'// testing transform movement
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
             });
             $('.com-right').css({ 
-                'transform':'translateY(' + element3*3 + 'px)  rotate(180deg)'// testing transform movement
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
             });
             $('.com-left').css({ 
-                'transform':'translateY(' + -element3 + 'px)'// testing transform movement
+                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
             });
             $('.com-mright').css({ 
-                'transform':'translateY(' + -element3 + 'px)'// testing transform movement
+                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
             });
         } else {
             $('.sec-three').removeClass('visible-show');
@@ -91,7 +91,6 @@ function navScroll() {
         } else {
             $('.sec-final').removeClass('visible-show');
         }
-    });
 }
 // Navigation Logic
 function navOpen() {
@@ -130,9 +129,30 @@ function ranFont() {
 
 }
 
-window.setInterval(function(){
-    ranFont()
-}, 2000);
+
+// Stroke vs Fill
+function strokeFont()  {
+    $(".stroke span").each(function(){
+        var stroke = "#ffffff00";
+        var fill = "#fff";
+        var style = [stroke, fill];
+        var randomStyle = style[Math.floor(Math.random()*style.length)];
+    
+        var currentElement = $(this);
+        currentElement.css("color", randomStyle);
+
+        // if (currentElement.css("color") == "#ffffff00" || currentElement.css("color") == stroke ) {
+        //     currentElement.css("-webkit-text-stroke","1px #fff");
+        // } else {
+        //     currentElement.css("-webkit-text-stroke", "none");
+            
+        // }
+    });
+
+}
+// window.setInterval(function(){
+//     ranFont()
+// }, 2000);
 
 // I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
 // Useful snips document.getElementById("fontfamily").style.fontFamily;
@@ -149,9 +169,11 @@ $(document).ready(function() {
     navScroll();
     navOpen();
     ranFont();
+    strokeFont();
 });
 $(window).resize(function() {
     navScroll();
     navOpen();
     ranFont();
+    strokeFont();
 });
