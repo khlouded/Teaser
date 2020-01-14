@@ -5,7 +5,7 @@ This is the styling page for the YSDN Teaser
     src: url("C:/Users/Desktop/Website/fonts/Harlow_Solid_Italic.ttf");
 }
 font-family: 'Parabole Regular', sans-serif;
-font-family: 'Helvetica Neue', sans-serif;
+font-family: 'Helvetica Neue Lt Std', sans-serif;
 Ratio is 0.98 to 1
 
 For Parabole
@@ -428,6 +428,9 @@ This is the controls for each Section.
 }
 /* Final Page Output */
 .tag-four {
+    font-size: 15vW;
+}
+/* .tag-four {
     box-sizing: border-box;
     width: 100%;
     padding: 40px;
@@ -437,8 +440,8 @@ This is the controls for each Section.
     grid-template-rows: [top] 1fr [location] 4fr [mail] 1fr [bottom]1fr;
     grid-template-columns: [left] 2fr [right] 1fr;
     pointer-events: all !important;
-}
-.tag-four .social-content {
+} */
+/* .tag-four .social-content {
     grid-row: bottom;
     grid-column: right;
     justify-self: end;
@@ -456,8 +459,8 @@ This is the controls for each Section.
     border-bottom: none;
     grid-row: location;
     grid-column: left;
-}
-.pat-four {
+} */
+/* .pat-four {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -471,12 +474,12 @@ This is the controls for each Section.
     -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
     transform: translateX(0);
-}
-.pat-four .comp h1{
+} */
+/* .pat-four .comp h1{
 
     animation: motionX 20s linear 0s infinite forwards ;
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
-}
+} */
 /* This inverts the color of the screen */
 .invert {
     position: fixed;

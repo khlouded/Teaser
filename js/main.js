@@ -73,9 +73,9 @@ function navScroll() {
             $('.sec-final').addClass('visible-show');
             var element4 = Math.abs(wScroll - $(".sec-final").position().top);
             // console.log(element4  + " break four");
-            $('.com-center').css({ 
-                'transform':'translateX(' + -element4 + 'px) '// testing transform movement
-            });
+                // $('.com-center').css({ 
+                //     'transform':'translateX(' + -element4 + 'px) '// testing transform movement
+                // });
         } else {
             $('.sec-final').removeClass('visible-show');
         }
@@ -107,11 +107,17 @@ function navScroll() {
             $('.tagline').css({ 
                 'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
             });
-        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
+        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95 ) {// This statement is inbetween .95 of section three and the bottom of section three
             var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95));
             $('.tagline').css({ 
                 'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
             });
+        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())) { //this statement is inbetween the top of section 3 and .05 of section 3
+            var element1 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()));
+            $('.tagline').css({ 
+                'transform':'translateX(' + element1/10 + 'px) rotate(' + element1/50 + 'deg)'// testing transform movement
+            });
+
         } else {
             $('.tagline').css({ 
                 'transform':'translateY(0px)'// testing transform movement
