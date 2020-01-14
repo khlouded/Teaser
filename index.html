@@ -11,11 +11,22 @@
     <!-- Lettery -->
     <script src="js/plugins/jquery.lettering.js"></script>
     <script src='js/main.js'></script>
-    <link rel="icon" href="img/Favicon.gif" type="image/gif" >
+
+
+    <!-- I tried but my ass can't get this favicon script to work -->
+    <script src='js/plugins/favico.js'></script>
+    <script>
+        var favicon=new Favico();
+        var image=document.getElementById('favicon');
+        favicon.image(image);
+    </script>
+
 
 
 </head>
 <body>
+    <img id="favicon" src="img/favicon-64x64.gif" style="display: none;">
+
     <!-- Each section would be defined by section and labeled using a multitude of classes. The parent class is section -->
     <!-- 
         HOW THIS WORKS (Delete after completing)
@@ -96,13 +107,6 @@
             <h1 class="variable">To Emerging Creatives</h1>
         </div>
 
-<<<<<<< HEAD
-                <p>this is a bit more :)</p>
-                <h3>Fuck it up bitch</h3>
-                <h4>I hate everything</h4>
-
-                <p>hi hello hi</p>
-=======
         <div class="pattern pat-three">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
             <div class="comp com-left"><h1 class="variable stroke">20202020202020202020</h1></div>
@@ -116,7 +120,6 @@
         <div class="tagline tag-four">
             <div class="title"> <!-- Every time i think there will be a conflicting class I try to be more specific -->
                 <h2 class="variable">York university &#47; Sheridan College graduating Showcase</h2>
->>>>>>> 2a868742ec67f0ebb229515ac044bc257188c5c8
             </div>
             <div class="location">
                 <p>April 13-14</p>
