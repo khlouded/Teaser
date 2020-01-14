@@ -41,11 +41,13 @@ Instructional Notes
     font-family: "Parabole Regular";
     src: url("../fnts/Parabole-Regular.woff");
     src: url("../fnts/Parabole-Regular.woff2");
+    src: url("../fnts/Parabole-Regular.otf");
 }
 @font-face {
     font-family: "Helvetica Neue";
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff2");
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf");
 }
 /* Main Layout and init resizing */
 html {
@@ -105,7 +107,7 @@ a {
     color: #fff;
     text-decoration: underline;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 400;
     /* text-transform: uppercase; */
 }
 /******************************************** Navigation

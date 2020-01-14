@@ -178,28 +178,112 @@ function ranColor()  {
         currentElement.css("background-color", randomStyle);
     });
 }
-// window.setInterval(function(){
-//     ranFont()
-// }, 2000);
 
-// I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
-// Useful snips document.getElementById("fontfamily").style.fontFamily;
-// https://stackoverflow.com/questions/21862759/how-do-i-generate-a-random-font-to-a-line-of-text-every-time-page-is-refreshed
+function favIcon() {
+    //instead of using a plugin
+        var favicon_images = [
+            'imgs/favicon/favicon000.png',
+            'imgs/favicon/favicon002.png',
+            'imgs/favicon/favicon004.png',
+            'imgs/favicon/favicon006.png',
+            'imgs/favicon/favicon008.png',
+            'imgs/favicon/favicon010.png',
+            'imgs/favicon/favicon012.png',         
+            'imgs/favicon/favicon014.png',
+            'imgs/favicon/favicon016.png',           
+            'imgs/favicon/favicon018.png',          
+            'imgs/favicon/favicon020.png',           
+            'imgs/favicon/favicon022.png',          
+            'imgs/favicon/favicon024.png',           
+            'imgs/favicon/favicon026.png',
+            'imgs/favicon/favicon028.png',
+            'imgs/favicon/favicon030.png',
+            'imgs/favicon/favicon032.png',
+            'imgs/favicon/favicon034.png',
+            'imgs/favicon/favicon036.png',
+            'imgs/favicon/favicon038.png',
+            'imgs/favicon/favicon040.png',
+            'imgs/favicon/favicon042.png',
+            'imgs/favicon/favicon044.png',
+            'imgs/favicon/favicon046.png',
+            'imgs/favicon/favicon048.png',
+            'imgs/favicon/favicon050.png',
+            'imgs/favicon/favicon052.png',
+            'imgs/favicon/favicon054.png',
+            'imgs/favicon/favicon056.png',
+            'imgs/favicon/favicon058.png',
+            'imgs/favicon/favicon060.png',
+            'imgs/favicon/favicon062.png',
+            'imgs/favicon/favicon064.png',
+            'imgs/favicon/favicon066.png',
+            'imgs/favicon/favicon068.png',
+            'imgs/favicon/favicon070.png',
+            'imgs/favicon/favicon072.png',
+            'imgs/favicon/favicon074.png',
+            'imgs/favicon/favicon076.png',
+            'imgs/favicon/favicon078.png',
+            'imgs/favicon/favicon080.png',
+            'imgs/favicon/favicon082.png',
+            'imgs/favicon/favicon084.png',
+            'imgs/favicon/favicon086.png',
+            'imgs/favicon/favicon088.png',
+            'imgs/favicon/favicon090.png',
+            'imgs/favicon/favicon092.png',
+            'imgs/favicon/favicon094.png',
+            'imgs/favicon/favicon096.png',
+            'imgs/favicon/favicon098.png'
+        ],
+    image_counter = 0; // To keep track of the current image
 
+    setInterval(function() {
+    $("link[rel='icon']").remove();
+    $("link[rel='shortcut icon']").remove();
+    $("head").append('<link rel="icon" href="' + favicon_images[image_counter] + '" type="image/png">');
+
+    // If last image then goto first image
+    // Else go to next image    
+    if(image_counter == favicon_images.length -1)
+    image_counter = 0;
+    else
+    image_counter++;
+    }, 100);   
+}
+
+//Check browsers
+function detectIEEdge() {
+    var ua = window.navigator.userAgent;
+
+    var msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+        $(".invert").css("display", "none")
+    }
+    var trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+        $(".invert").css("display", "none")
+    }
+    var edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+        $(".invert").css("display", "none")
+    }
+    // other browser
+    return false;
+}
 
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly
 $(window).scroll(function() {
     navScroll();
     navOpen();
-   
-});
 
+});
+// These functions check a variety of things and runs the previously mentioned function. 
 $(document).ready(function() {
     navScroll();
     navOpen();
     ranFont();
     strokeFont();
     ranColor();
+    favIcon()
+    detectIEEdge()
 });
 $(window).resize(function() {
     navScroll();
