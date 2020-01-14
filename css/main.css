@@ -44,7 +44,7 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.otf");
 }
 @font-face {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue Lt Std";
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff2");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf");
@@ -64,7 +64,7 @@ body {
     padding: 0;
     background: #000;
     color: #fff;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica Neue Lt Std', sans-serif;
     font-weight: 400;
     font-size: 2em;
     box-sizing: border-box;
