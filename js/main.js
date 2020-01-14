@@ -29,13 +29,13 @@ function navScroll() {
             $('.sec-one').removeClass('visible-show');
             $('.sec-two').addClass('visible-show');
             $('.com-mid').css({ 
-                'transform':'translateX(' + wScroll/2 + 'px)'// testing transform movement
+                'transform':'translateX(' + wScroll/2 + 'px)'
             });
             $('.com-bot').css({ 
-                'transform':'translateX(' + -wScroll/2 + 'px)'// testing transform movement
+                'transform':'translateX(' + -wScroll/2 + 'px)'
             });
             $('.com-top').css({ 
-                'transform':'translateX(' + -wScroll/2 + 'px)'// testing transform movement
+                'transform':'translateX(' + -wScroll/2 + 'px)'
             });
             var element2 = Math.abs(wScroll - $(".sec-two").position().top);
             // console.log(element2 + " break two");
@@ -51,16 +51,16 @@ function navScroll() {
             // console.log(element3 + " break three");
             //upside down
             $('.com-mleft').css({ 
-                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'
             });
             $('.com-right').css({ 
-                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'
             });
             $('.com-left').css({ 
-                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
+                'transform':'translateY(' + -element3/2 + 'px)'
             });
             $('.com-mright').css({ 
-                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
+                'transform':'translateY(' + -element3/2 + 'px)'
             });
         } else {
             $('.sec-three').removeClass('visible-show');
@@ -74,12 +74,13 @@ function navScroll() {
             var element4 = Math.abs(wScroll - $(".sec-final").position().top);
             // console.log(element4  + " break four");
                 // $('.com-center').css({ 
-                //     'transform':'translateX(' + -element4 + 'px) '// testing transform movement
+                //     'transform':'translateX(' + -element4 + 'px) '
                 // });
         } else {
             $('.sec-final').removeClass('visible-show');
         }
-
+        var startTrans = 0.1;
+        var endTrans = 0.9;
         //additional animations
         //10% into the first section, the word scroll will dissappear
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
@@ -87,40 +88,73 @@ function navScroll() {
         } else {
             $('.tagline p').addClass('no-opacity');
         }
-        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95) { // This statement is inbetween .95 of section one and the bottom of section one
-            var element1 = Math.abs(wScroll - (($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95));
-            $('.tagline').css({ 
-                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) + $(".sec-one").innerHeight()*endTrans) { // This statement is inbetween .95 of section one and the bottom of section one
+            var element1 = Math.abs(wScroll - (($(".sec-one").position().top) + $(".sec-one").innerHeight()*endTrans));
+            Number.prototype.clamp = function(min, max) {
+                return Math.min(Math.max(this, min), max);
+            };
+            var opacity = element1.clamp(0, 100)
+            
+            $('.tagline h1').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)',
             });
-        } else if (  wScroll >= ($(".sec-two").position().top) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05)) { //this statement is inbetween the top of section 2 and .05 of section 2
-            var element1 = Math.abs(wScroll - ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05));
             $('.tagline').css({ 
-                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
+                // 'transform':'translateY(' + -element1*1 + 'px)',
+                'background-color':'rgba(0, 0, 0,'+ element1/200 +')'
             });
-        } else if (wScroll <= $(".sec-two").position().top + $(".sec-two").innerHeight() && wScroll >= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
-            var element1 = Math.abs(wScroll - (($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95));
-            $('.tagline').css({ 
-                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+        } else if (  wScroll >= ($(".sec-two").position().top) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans)) { //this statement is inbetween the top of section 2 and .05 of section 2
+            var element1 = Math.abs(wScroll - ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans));
+
+            $('.tagline h1').css({ 
+                'transform':'translateY(' + element1*1 + 'px)',
             });
-        } else if (  wScroll >= ($(".sec-three").position().top) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05)) { //this statement is inbetween the top of section 3 and .05 of section 3
-            var element1 = Math.abs(wScroll - ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05));
             $('.tagline').css({ 
-                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
-            });
-        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95 ) {// This statement is inbetween .95 of section three and the bottom of section three
-            var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95));
-            $('.tagline').css({ 
-                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
-            });
-        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())) { //this statement is inbetween the top of section 3 and .05 of section 3
-            var element1 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()));
-            $('.tagline').css({ 
-                'transform':'translateX(' + element1/10 + 'px) rotate(' + element1/50 + 'deg)'// testing transform movement
+                // 'transform':'translateY(' + -element1*1 + 'px)',
+                'background-color':'rgba(0, 0, 0,'+  element1/200+')'
             });
 
+        } else if (wScroll <= $(".sec-two").position().top + $(".sec-two").innerHeight() && wScroll >= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans ) {// This statement is inbetween .95 of section two and the bottom of section two
+            var element1 = Math.abs(wScroll - (($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans));
+
+            $('.tagline h1').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)',
+            });
+            $('.tagline').css({ 
+                // 'transform':'translateY(' + element1*1 + 'px)',
+                'background-color':'rgba(0, 0, 0,'+  element1/200+')'
+            });
+            console.log(element1/100)
+        } else if (  wScroll >= ($(".sec-three").position().top) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans)) { //this statement is inbetween the top of section 3 and .05 of section 3
+            var element1 = Math.abs(wScroll - ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans));
+            
+            $('.tagline h1').css({ 
+                'transform':'translateY(' + element1*1 + 'px)',
+            });
+            $('.tagline').css({ 
+                // 'transform':'translateY(' + -element1*1 + 'px)',
+                'background-color':'rgba(0, 0, 0,'+ element1/200+')'
+            });
+
+        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*endTrans ) {// This statement is inbetween .95 of section three and the bottom of section three
+            var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*endTrans));
+            
+            $('.tagline h1').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)',
+            });
+            $('.tagline').css({ 
+                // 'transform':'translateY(' + element1*1 + 'px)',
+                'background-color':'rgba(0, 0, 0,'+ element1/200+')'
+            });
+        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())) { //this statement is inbetween the top of section 4 and .05 of section 4
+            var element1 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()));
+            $('.tagline h1').css({ 
+                'transform':'translateX(' + element1/10 + 'px) rotate(' + element1/50 + 'deg)'
+            });
+            
         } else {
             $('.tagline').css({ 
-                'transform':'translateY(0px)'// testing transform movement
+                'transform':'translateY(0px)',
+                'background-color':'rgba(0,0,0,0)'
             });
         }
 }
