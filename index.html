@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>YSDN Teaser</title>
+    <title>YSDN 2020</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <!-- jquery -->
@@ -17,53 +17,83 @@
 </head>
 <body>
     <!-- Each section would be defined by section and labeled using a multitude of classes. The parent class is section -->
+    <!-- 
+        HOW THIS WORKS (Delete after completing)
+        NAVIGATION
+        The navigation is not hidden, it's just pushed all the way to the right and is revealed at a certain pixel amount. for desktop the width is set to 450px, which is the same as the position it is moved to the right. This accounts for preloading and transitions. 
+
+        As you click on the arrow div, this will add the class .visible-grid to the module, making it appear in the right spot
+
+        for responsiveness, I want you to change the width to 100% in the mobile version of the module and to take away the border line. This
+
+        PATTERNS
+        Each section is either the ending or different pattern
+
+        RESPONSIVENESS
+        Everything is fine up until 480px, where it starts to degrade.
+
+        This should be responsive on every device so instead of taking a bunch of breakpoints online,set your own depending on the content. Check each browser width and see if it all works at any size. Also the height of each pattern should change to do this change SECTION
+
+        There is a problem with the margins on pattern 1
+        Set a breakpoint for desktop (which is larger than everything) and reiterate the changes you made on the other breakpoints
+
+        
+
+        For the Logic, there isn't much that we need to change so you don't really need to mess with the JS
+
+        The pattern text size is defined by View Width. If this doesn't work for you in the mobile section you can always change it
+    -->
+    <div class="invert"></div>
+    <!-- this invert will change the black and white randomly, so when you enter the site it might be white or it might be black -->
     <nav class="nav-arrow">
         <div class="arrow"></div>
     </nav>
     <nav class="module">
-        <div class="title"> <!-- Every time i think there will be a conflicting class I try to be more specific -->
+        <div class="title">
             <h2 class="variable">York university &#47; Sheridan College graduating Showcase</h2>
             <div class="close"></div>
         </div>
         <div class="location">
             <p>April 13-14</p>
-            <p>Location TBD</p>
+            <!-- <p>Location TBD</p> -->
         </div>
         <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
         <div class="social-content">
             <a class="social">Facebook</a>
-            <a class="social">Twitter</a>
-            <a class="social">Linkedin</a>
+            <a class="social">Instagram</a>
         </div>
     </nav>
+
     <!-- This is where the actual content is located -->
     <div class="section sec-one visible-show">
         <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-one">
-            <h1>To the future</h1>
+            <h1 class="variable">To the future</h1>
+            <p class="scroll">scroll down</p>
         </div>
-
         <div class="pattern pat-one">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
-            <div class="comp com-top"><h1 class="variable">2020<br>2020<br>2020</h1></div>
-            <div class="comp com-bot"><h1 class="variable">2020<br>2020<br>2020</h1></div>
+            <div class="comp com-vert"><h1 class="variable">2020</h1></div>
         </div>
+
     </div>
     <div class="section sec-two">
         <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-two">
-            <h1>To New Beginnings</h1>
+            <h1 class="variable">To New Beginnings</h1>
         </div>
-
         <div class="pattern pat-two">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
-            <div class="comp com-top"><h1 class="variable">2020202020</h1></div>
+            <div class="comp com-top"><h1 class="variable stroke">202020202020202020202020</h1></div>
+            <div class="comp com-mid"><h1 class="variable">202020202020202020202020</h1></div>
+            <div class="comp com-bot"><h1 class="variable stroke">202020202020202020202020</h1></div>
+            
         </div>
     </div>
     <div class="section sec-three">
         <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-three">
-            <h1>To Emerging Creatives</h1>
+            <h1 class="variable">To Emerging Creatives</h1>
         </div>
 
 <<<<<<< HEAD
@@ -75,8 +105,10 @@
 =======
         <div class="pattern pat-three">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
-            <div class="comp com-top"><h1>2020</h1></div>
-            <div class="comp com-bot"><h1>2020</h1></div>
+            <div class="comp com-left"><h1 class="variable stroke">20202020202020202020</h1></div>
+            <div class="comp com-mleft"><h1 class="variable">20202020202020202020</h1></div>
+            <div class="comp com-mright"><h1 class="variable">20202020202020202020</h1></div>
+            <div class="comp com-right"><h1 class="variable stroke">20202020202020202020</h1></div>
         </div>
     </div>
     <div class="section sec-final">
@@ -92,14 +124,14 @@
             </div>
             <a class="mail" href="mailto:contact@ysdn2020.com">contact@ysdn2020.com</a>
             <div class="social-content">
-                <a class="social">Facebook</a>
-                <a class="social">Twitter</a>
-                <a class="social">Linkedin</a>
+                <a class="social" href="https://www.instagram.com/ysdn2020">Facebook</a>
+                <a class="social" href="https://www.instagram.com/ysdn2020">Instagram</a>
             </div>
         </div>
 
         <div class="pattern pat-four">
             <!-- instead of section, gonna use "comp" cause i'm an AE guy-->
+            <div class="comp com-center"><h1 class="variable">202020202020202020202020</h1></div>
         </div>
     </div>
 </body>

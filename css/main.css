@@ -42,20 +42,46 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.woff");
     src: url("../fnts/Parabole-Regular.woff2");
 }
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff");
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff2");
+}
 /* Main Layout and init resizing */
 html {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    --scrollbarBG: #00000000;
+    --thumbBG: #fff;
 }
 
 body {
-    margin: 0;
+    margin: 0px;
+    max-width: 100%;
+    overflow-x: hidden;
     padding: 0;
     background: #000;
     color: #fff;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 400;
     font-size: 2em;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #fff #00000000;
+}
+/* Custom Scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+::-webkit-scrollbar-track {
+    background: #00000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 0px;
+    border: none;
 }
 
 /* Main Typography */
@@ -69,17 +95,18 @@ h1 {
 h2 {
     text-transform: uppercase;
     font-size: 1em;
-    font-weight: 300;
+    font-weight: 400;
 }
 p { 
     font-size: 18pt;
-    font-weight: 300;
+    font-weight: 400;
 }
 a {
     color: #fff;
     text-decoration: underline;
     font-size: 1em;
     font-weight: 300;
+    /* text-transform: uppercase; */
 }
 /******************************************** Navigation
 This is just the module
@@ -93,7 +120,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    z-index: 1000;
+    z-index: 100;
 }
 /* Pop Up Button */
 .arrow {
@@ -139,7 +166,7 @@ nav {
     align-items: start;
     grid-template-rows: [top] 4fr [location] 1fr [mail] 1fr [bottom]1fr;
     grid-template-columns: 1fr;
-    z-index: 1001;
+    z-index: 101;
     right: -450px;
     transition: right .6s ease-in-out  ;
 }
@@ -215,6 +242,7 @@ nav {
 .visible-grid {
     right: 0;
 }
+
 /*************************************
 This is the end of the Navigation edits 
 ************************************/
@@ -223,11 +251,14 @@ This is the end of the Navigation edits
 This is the controls for each Section.
 ********************************************/
 .section {
-    /* This is currently just a test size */
     display: flex;
     visibility: hidden;
-    height: 500vH;
+    height: 200vW; /* MAKE RESPONSIVE This height is too long for different widths*/
+    min-height: 200vW;
+    max-width: 100%;
     pointer-events: none;
+    padding: 0;
+    margin: 0;
 }
 /* This item is to create an empty element for spacing */
 .space {
@@ -254,58 +285,29 @@ This is the controls for each Section.
     text-align: center;
     vertical-align: middle;
 }
+.scroll {
+    position: absolute;
+    display:block;
+    margin-top: 400px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+.no-opacity {
+    opacity: 0;
+}
 .pattern {
-    position: relative;
     top: 0;
     width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* Section One */
-.pat-one {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-}
 .pat-one .comp {
-    position: absolute;
-    width: 100%;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-}
-.pat-one .comp h1 {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 45vw;
-    font-family: 'Parabole Regular', sans-serif;
-    text-align: center;
-}
-.com-top {
-    top:0;
-}
-.com-top h1 {
-    bottom: -50%;
-}
-.com-bot {
-    bottom: 0;
-}
-.com-bot h1 {
-    top: -50%;
-}
-/* Section Two */
-.sec-two {
-    background: green;
-}
-.pat-two {
-    display: flex;
-}
-.pat-two .comp {
     position:absolute;
     width: 100%;
     display: flex;
@@ -314,18 +316,110 @@ This is the controls for each Section.
     align-items:center;
     margin-top: 100vH;
 }
-.pat-two .comp h1 {
+.pat-one .comp h1 {
     font-size: 55vw;
     writing-mode: vertical-lr;
     text-orientation: upright;
     margin: 0;
     padding: 0;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
+    /* line-height:-10em; */
+    /* letter-spacing: -50pt; */
+}
+.pat-one .variable span {
+    margin: -10vw ; 
+}
+
+/* Section Two */
+.pat-two {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.pat-two .comp {
+    position: absolute;
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.pat-two .comp h1 {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 35vw;
+    font-family: 'Parabole Regular', sans-serif;
+    text-align: center;
+    animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-text-stroke: .5px #fff;
+}
+.pat-two .com-top {
+    top:0;
+    transform: translateX(0);
+}
+.pat-two .com-top h1 {
+    bottom: -20%;
+}
+.pat-two .com-bot {
+    bottom: 0;
+    transform: translateX(0);
+}
+.pat-two .com-bot h1 {
+    top: -20%;
+}
+.pat-two .com-mid {
+    justify-content: center;
+    height: 100%;
+    color: #ffffff00;
+    -webkit-text-stroke: .5px #fff;
+    transform: translateX(0);
+}
+/* Pattern Three */
+.sec-three {
+    position: relative;
+}
+.pat-three {
+    position: absolute;
+    display: grid;
+    width: 100vW;
+    grid-template-columns: [left] 1fr [mleft] 1fr [mright] 1fr [right] 1fr;
+}
+.pat-three .comp {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+}
+.pat-three .comp h1 {
+    font-size: 35vw;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 0;
+    padding: 0;
+    -webkit-text-stroke: .5px #fff;
+    color: #ffffff00;
+    animation: motionY 20s linear 0s infinite forwards ;
+    -webkit-animation: motionY 20s linear 0s infinite forwards ;
+    /* line-height:-10em; */
+    /* letter-spacing: -50pt; */
+}
+.pat-three .com-left h1, .pat-three .com-right h1 {
+    -webkit-text-stroke: none;
+    color: #ffffff;
+}
+.pat-three .com-mleft, .pat-three .com-right {
+    transform-origin: top center;
+    transform: translateY(0) rotate(180deg);
+}
+.pat-three .variable span {
+    margin:  -5vw ;
 }
 
 /* JS functions */
-/* Opening pop up module */
+/* Opening each pattern */
 .visible-show {
     visibility: visible !important;
     pointer-events: all !important;
@@ -342,7 +436,6 @@ This is the controls for each Section.
     grid-template-columns: [left] 2fr [right] 1fr;
     pointer-events: all !important;
 }
-
 .tag-four .social-content {
     grid-row: bottom;
     grid-column: right;
@@ -361,4 +454,74 @@ This is the controls for each Section.
     border-bottom: none;
     grid-row: location;
     grid-column: left;
+}
+.pat-four {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: 100vH;
+}
+.pat-four .comp {
+    margin-left: 50vH;
+    font-size: 15vw;
+    -webkit-text-stroke: .5px #fff;
+    color: #ffffff00;
+    transform: translateX(0);
+}
+.pat-four .comp h1{
+
+    animation: motionX 20s linear 0s infinite forwards ;
+    -webkit-animation: motionX 20s linear 0s infinite forwards ;
+}
+/* This inverts the color of the screen */
+.invert {
+    position: fixed;
+    width: 100vW;
+    height:100vH;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    pointer-events: none;
+    z-index: 200;
+    mix-blend-mode: difference;
+}
+@-webkit-keyframes motionX {
+    from {
+        transform: translateX(-200px);
+        }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+  /* Standard syntax */
+@keyframes motionX {
+    from {
+        transform: translateX(-200px);
+        }
+    to {
+        transform: translateX(200px);
+    }
+}
+@-webkit-keyframes motionY {
+    from {
+        transform: translateY(200px);
+        }
+    to {
+        transform: translateY(-200px);
+    }
+}
+
+  /* Standard syntax */
+@keyframes motionY {
+    from {
+        transform: translateY(200px);
+        }
+    to {
+        transform: translateY(-200px);
+    }
 }

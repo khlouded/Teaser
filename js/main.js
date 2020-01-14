@@ -1,58 +1,123 @@
-
-// general use notes  Put each logic section into a class and then output that class in the following
-// 
-// console.log("working")// verification
-
 //Scroll Logic
 function navScroll() {
-    $(window).scroll(function() {//adding a scroll function to the window therefore when ever you scroll the window it will activate the contents of this function
+    //therefore when ever you scroll the window it will activate the contents of this function
         var wScroll = $(window).scrollTop(); // a variable that is a number that describes how far you have scrolled
         
-        console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
-
+        // console.log(wScroll);//This is just to check the scroll value if I need number information. I think this is based on pixels.
             //Visibility Logic
             //This uses breakpoints of each section. When we scroll to one section, then the display of the other section would show up or dissapear. I need to decide weather the breakpoints are based on the end or the start of a section, as if it's display: none, then that section might not exists in the DOM
 
         //Breakpoints
         //Section One
-        var windowHeight = window.innerHeight;
+        // var windowHeight = window.innerHeight;
         // For percentage of scroll I can just multiply by that value so 50% = *.5 or 90% = *.9
-
+        
         // If the scroll position is passed the bottom of section one
         // With this method, we have the space of the windowHeight inbetween each transition. Hopefully it's not noticeable
-        if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) ) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
-            // console.log("Section-Two");
+        // If the scroll position is passed the bottom of start (THIS IS SECTION ONE)
+
+        //Main visibility logic and pattern logic
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) ) {
+            $('.sec-one').addClass('visible-show');
+            var element1 = Math.abs(wScroll - $(".sec-one").position().top);
+            // console.log(element1 + " break one");
+        } else {
+            $('.sec-one').removeClass('visible-show');
+        }
+        // If the scroll position is passed the bottom of section one (THIS IS SECTION TWO)
+        if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight())) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             $('.sec-one').removeClass('visible-show');
             $('.sec-two').addClass('visible-show');
+            $('.com-mid').css({ 
+                'transform':'translateX(' + wScroll/2 + 'px)'// testing transform movement
+            });
+            $('.com-bot').css({ 
+                'transform':'translateX(' + -wScroll/2 + 'px)'// testing transform movement
+            });
+            $('.com-top').css({ 
+                'transform':'translateX(' + -wScroll/2 + 'px)'// testing transform movement
+            });
+            var element2 = Math.abs(wScroll - $(".sec-two").position().top);
+            // console.log(element2 + " break two");
         } else {
-            // console.log("Section-One");
-            $('.sec-one').addClass('visible-show');
             $('.sec-two').removeClass('visible-show');
         }
-        // If the scroll position is passed the bottom of section two
-        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+        // If the scroll position is passed the bottom of section two (THIS IS SECTION THREE)
+        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Three");
             $('.sec-two').removeClass('visible-show');
             $('.sec-three').addClass('visible-show');
+            var element3 = Math.abs(wScroll - $(".sec-three").position().top);
+            // console.log(element3 + " break three");
+            //upside down
+            $('.com-mleft').css({ 
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
+            });
+            $('.com-right').css({ 
+                'transform':'translateY(' + element3*2 + 'px)  rotate(180deg)'// testing transform movement
+            });
+            $('.com-left').css({ 
+                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
+            });
+            $('.com-mright').css({ 
+                'transform':'translateY(' + -element3/2 + 'px)'// testing transform movement
+            });
         } else {
             $('.sec-three').removeClass('visible-show');
         }
+        //If the scroll position is passed the bottom of section three (THIS IS SECTION FOUR)
         if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
             // console.log("Section-Three");
+            
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
+            var element4 = Math.abs(wScroll - $(".sec-final").position().top);
+            // console.log(element4  + " break four");
+            $('.com-center').css({ 
+                'transform':'translateX(' + -element4 + 'px) '// testing transform movement
+            });
         } else {
             $('.sec-final').removeClass('visible-show');
         }
 
-
-        // Scroll effects
-        // pattern 1
-    });
-
-
-    
-};
+        //additional animations
+        //10% into the first section, the word scroll will dissappear
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
+            $('.tagline p').removeClass('no-opacity');
+        } else {
+            $('.tagline p').addClass('no-opacity');
+        }
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95) { // This statement is inbetween .95 of section one and the bottom of section one
+            var element1 = Math.abs(wScroll - (($(".sec-one").position().top) + $(".sec-one").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else if (  wScroll >= ($(".sec-two").position().top) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05)) { //this statement is inbetween the top of section 2 and .05 of section 2
+            var element1 = Math.abs(wScroll - ($(".sec-two").position().top + $(".sec-two").innerHeight()*.05));
+            $('.tagline').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
+            });
+        } else if (wScroll <= $(".sec-two").position().top + $(".sec-two").innerHeight() && wScroll >= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
+            var element1 = Math.abs(wScroll - (($(".sec-two").position().top) + $(".sec-two").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else if (  wScroll >= ($(".sec-three").position().top) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05)) { //this statement is inbetween the top of section 3 and .05 of section 3
+            var element1 = Math.abs(wScroll - ($(".sec-three").position().top + $(".sec-three").innerHeight()*.05));
+            $('.tagline').css({ 
+                'transform':'translateY(' + -element1*1 + 'px)'// testing transform movement
+            });
+        } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95 ) {// This statement is inbetween .95 of section two and the bottom of section two
+            var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*.95));
+            $('.tagline').css({ 
+                'transform':'translateY(' + element1*1 + 'px)'// testing transform movement
+            });
+        } else {
+            $('.tagline').css({ 
+                'transform':'translateY(0px)'// testing transform movement
+            });
+        }
+}
 // Navigation Logic
 function navOpen() {
     $(".arrow").click(function(){  //clicking on the menu item
@@ -90,26 +155,56 @@ function ranFont() {
 }
 
 
+// Stroke vs Fill
+function strokeFont()  {
+    $(".stroke span").each(function(){
+        var stroke = "#ffffff00";
+        var fill = "#fff";
+        var style = [stroke, fill, fill];
+        var randomStyle = style[Math.floor(Math.random()*style.length)];
+    
+        var currentElement = $(this);
+        currentElement.css("color", randomStyle);
+    });
+}
+function ranColor()  {
+    $(".invert").each(function(){
+        var stroke = "#ffffff00";
+        var fill = "#fff";
+        var style = [stroke, fill];
+        var randomStyle = style[Math.floor(Math.random()*style.length)];
+    
+        var currentElement = $(this);
+        currentElement.css("background-color", randomStyle);
+    });
+}
+// window.setInterval(function(){
+//     ranFont()
+// }, 2000);
+
 // I guess, if font-family: helvetica neue - than the jquery plugin will activate with all of the ranomized settings
 // Useful snips document.getElementById("fontfamily").style.fontFamily;
 // https://stackoverflow.com/questions/21862759/how-do-i-generate-a-random-font-to-a-line-of-text-every-time-page-is-refreshed
-
-
 
 
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly
 $(window).scroll(function() {
     navScroll();
     navOpen();
+   
 });
 
 $(document).ready(function() {
     navScroll();
     navOpen();
     ranFont();
+    strokeFont();
+    ranColor();
 });
 $(window).resize(function() {
     navScroll();
     navOpen();
     ranFont();
+    strokeFont();
+    ranColor();
 });
