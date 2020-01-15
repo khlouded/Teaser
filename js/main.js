@@ -83,7 +83,7 @@ function navScroll() {
         var endTrans = 0.9;
         //additional animations
         //10% into the first section, the word scroll will dissappear
-        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * 0.1) ) {
+        if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * startTrans) ) {
             $('.tagline p').removeClass('no-opacity');
         } else {
             $('.tagline p').addClass('no-opacity');

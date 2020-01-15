@@ -255,17 +255,12 @@ This is the controls for each Section.
 .section {
     display: flex;
     visibility: hidden;
-    height: 200vW; /* MAKE RESPONSIVE This height is too long for different widths*/
+    height: 200vW;
     min-height: 200vW;
     max-width: 100%;
     pointer-events: none;
     padding: 0;
     margin: 0;
-}
-/* This item is to create an empty element for spacing */
-.space {
-    display: block;
-    flex: 1;
 }
 /* This is for the content inside each section */
 .tagline {
@@ -277,7 +272,6 @@ This is the controls for each Section.
     height: 100vH;
     box-sizing: border-box; /* This is to make sure padding doesn't fuck shit up */
     z-index: 10;
-    /* dev tools background-color: #ff00ff5e; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -326,8 +320,8 @@ This is the controls for each Section.
     padding: 0;
     -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
-    /* line-height:-10em; */
-    /* letter-spacing: -50pt; */
+    font-weight: 400;
+    letter-spacing: 5px;
 }
 .pat-one .variable span {
     margin: -10vw ; 
@@ -405,8 +399,6 @@ This is the controls for each Section.
     color: #ffffff00;
     animation: motionY 20s linear 0s infinite forwards ;
     -webkit-animation: motionY 20s linear 0s infinite forwards ;
-    /* line-height:-10em; */
-    /* letter-spacing: -50pt; */
 }
 .pat-three .com-left h1, .pat-three .com-right h1 {
     -webkit-text-stroke: none;
