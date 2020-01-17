@@ -137,9 +137,11 @@ nav {
     transition: transform .5s;
 }
 .arrow:hover {
-    -webkit-transform:rotate(180deg);
-    -moz-transform:rotate(180deg);
-    transform:rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
 }
 .arrow:before {
     content:'';
@@ -150,9 +152,11 @@ nav {
     top:-7px;
     right:0px;
     transform-origin: top right;
-    -webkit-transform:rotate(-45deg);
-    -moz-transform:rotate(-45deg);
-    transform:rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
 }
 /* Module */
 .module {
@@ -183,9 +187,11 @@ nav {
 }
 
 .close:hover {
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    transform:rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
 }
 .close:before,.close:after{
     content:'';
@@ -196,15 +202,20 @@ nav {
     top:16px;
 }
 .close:before {
-    -webkit-transform:rotate(45deg);
-    -moz-transform:rotate(45deg);
-    transform:rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+
     left:2px;
 }
 .close:after {
-    -webkit-transform:rotate(-45deg);
-    -moz-transform:rotate(-45deg);
-    transform:rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg); 
     right:2px;
 }
 .close:hover {
@@ -361,6 +372,10 @@ This is the controls for each Section.
 .pat-two .com-top {
     top:0;
     transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
 }
 .pat-two .com-top h1 {
     bottom: -20%;
@@ -368,6 +383,10 @@ This is the controls for each Section.
 .pat-two .com-bot {
     bottom: 0;
     transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
 }
 .pat-two .com-bot h1 {
     top: -20%;
@@ -378,6 +397,10 @@ This is the controls for each Section.
     color: #ffffff00;
     -webkit-text-stroke: .5px #fff;
     transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
 }
 /* Pattern Three */
 .sec-three {
@@ -415,6 +438,10 @@ This is the controls for each Section.
 .pat-three .com-mleft, .pat-three .com-right {
     transform-origin: top center;
     transform: translateY(0) rotate(180deg);
+    -webkit-transform: translateY(0) rotate(180deg);
+    -moz-transform: translateY(0) rotate(180deg);
+    -ms-transform: translateY(0) rotate(180deg);
+    -o-transform: translateY(0) rotate(180deg);
 }
 .pat-three .variable span {
     margin:  -5vw ;
@@ -497,9 +524,17 @@ This is the controls for each Section.
 @-webkit-keyframes motionX {
     from {
         transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -ms-transform: translateX(-200px);
+        -o-transform: translateX(-200px);
         }
     to {
         transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+        -moz-transform: translateX(200px);
+        -ms-transform: translateX(200px);
+        -o-transform: translateX(200px);
     }
 }
 
@@ -507,26 +542,50 @@ This is the controls for each Section.
 @keyframes motionX {
     from {
         transform: translateX(-200px);
-        }
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -ms-transform: translateX(-200px);
+        -o-transform: translateX(-200px);        
+    }
     to {
         transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+        -moz-transform: translateX(200px);
+        -ms-transform: translateX(200px);
+        -o-transform: translateX(200px);
     }
 }
 @-webkit-keyframes motionY {
     from {
-        transform: translateY(200px);
-        }
+        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+        -moz-transform: translateX(200px);
+        -ms-transform: translateX(200px);
+        -o-transform: translateX(200px);        
+    }
     to {
-        transform: translateY(-200px);
+        transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -ms-transform: translateX(-200px);
+        -o-transform: translateX(-200px);   
     }
 }
 
   /* Standard syntax */
 @keyframes motionY {
     from {
-        transform: translateY(200px);
-        }
+        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+        -moz-transform: translateX(200px);
+        -ms-transform: translateX(200px);
+        -o-transform: translateX(200px);  
+    }
     to {
-        transform: translateY(-200px);
+        transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -ms-transform: translateX(-200px);
+        -o-transform: translateX(-200px);  
     }
 }
