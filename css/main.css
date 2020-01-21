@@ -166,7 +166,7 @@ nav {
     display: grid;
     justify-items: start;
     align-items: start;
-    grid-template-rows: [top] 4fr [location] 1fr [mail] 1fr [bottom]1fr;
+    grid-template-rows: [top] 4fr [date] 1fr [mail] 1fr [bottom]1fr;
     grid-template-columns: 1fr;
     z-index: 101;
     right: -450px;
@@ -222,13 +222,13 @@ nav {
     flex-grow: 1;
     margin-bottom: 30px;
 }
-/* Location */
-.location {
+/* date */
+.date {
     padding-bottom: 40px;
     border-bottom: 1px solid #fff;
     width: 100%;
 }
-.location p {
+.date p {
     margin: 0;
     padding: 0;
 }
@@ -283,10 +283,27 @@ This is the controls for each Section.
 }
 .scroll {
     position: absolute;
-    display:block;
+    display:flex;
+    align-items: center;
     margin-top: 400px;
     opacity: 1;
     transition: opacity 1s;
+}
+.scroll:after {
+    content: "";
+    margin:auto;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    top: 0;
+    position:absolute;
+    width: 100px;
+
+    height: 100px;
+    border:solid 1px #fff;
+    border-radius: 50%;
+    -webkit-animation: affordance 1.5s linear 0s 4 forwards ;
+    animation: affordance 1.5s linear 0s 4 forwards ;
 }
 .no-opacity {
     opacity: 0;
@@ -419,54 +436,78 @@ This is the controls for each Section.
     pointer-events: all !important;
 }
 /* Final Page Output */
-.tag-four {
-    font-size: 15vW;
-}
-/* .tag-four {
-    box-sizing: border-box;
+.sec-final {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pat-four {
+    box-sizing: border-box;
+    width: auto;
     padding: 40px;
     display: grid;
     justify-items: start;
     align-items: start;
-    grid-template-rows: [top] 1fr [location] 4fr [mail] 1fr [bottom]1fr;
-    grid-template-columns: [left] 2fr [right] 1fr;
+    grid-template-rows: [date] 1fr [mid] 1fr [bottom] 1fr;
+    grid-template-columns: [left] 1fr [right] 1fr;
     pointer-events: all !important;
-} */
-/* .tag-four .social-content {
+    position: fixed;
+    align-items:center;
+    height: 100vH;
+    clip-path: url(#mask);
+}
+.pat-four .social-content {
+    grid-row: bottom;
+    grid-column: left;
+    justify-self: start;
+    align-self: start;
+}
+.pat-four .social2 {
     grid-row: bottom;
     grid-column: right;
     justify-self: end;
-    align-self: end;
+    align-self: start;
 }
-.tag-four .social {
+.pat-four .social {
     display: inline-block;
 }
-.tag-four .mail {
-    grid-row: bottom;
+.pat-four .mail-box {
+    grid-row: date;
+    grid-column: right;
+    align-self: end;
+    justify-self: end;
+}
+.pat-four .mail {
+    margin-right: 0;
+    align-self: end;
+    margin-bottom: 0;
+}
+.pat-four .date {
+    border-bottom: none;
+    grid-row: date;
+    padding-bottom: 0;
     grid-column: left;
     align-self: end;
 }
-.tag-four .location {
-    border-bottom: none;
-    grid-row: location;
-    grid-column: left;
-} */
-/* .pat-four {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    height: 100vH;
+.pat-four .date p {
+    padding: 0;
 }
-.pat-four .comp {
-    margin-left: 50vH;
-    font-size: 15vw;
-    -webkit-text-stroke: .5px #fff;
-    color: #ffffff00;
+.pat-four .com-center {
+    font-size: 9vw;
+    grid-column: span 2;
+    grid-row-start: mid;
+    /* -webkit-text-stroke: .5px #fff; */
+    /* color: #ffffff00; */
     transform: translateX(0);
-} */
+    margin: 0;
+}
+.com-center h1 {
+    margin: 0;  
+    padding: 0;
+}
+.com-center h1 span {
+    display: inline-block; 
+}
 /* .pat-four .comp h1{
 
     animation: motionX 20s linear 0s infinite forwards ;
@@ -520,5 +561,81 @@ This is the controls for each Section.
         }
     to {
         transform: translateY(-200px);
+    }
+}
+@-webkit-keyframes affordance {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        }
+    to {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+  /* Standard syntax */
+@keyframes affordance {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        }
+    to {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+@media only screen and (max-width: 500px) {
+    p {
+        font-size: 15pt;
+    }
+    a {
+        font-size: 15pt;
+    }
+    /* Section 4 */
+    .pat-four {
+        box-sizing: border-box;
+        width: auto;
+        padding: 20px;
+        display: grid;
+        justify-items: start;
+        align-items: start;
+        grid-template-rows: [addtop] .5fr [date] .5fr [mid] 1fr [bottom] .5fr [addbottom] .5fr; 
+        grid-template-columns: [left] 1fr [right] 1fr;
+        pointer-events: all !important;
+        position: fixed;
+        align-items:center;
+        height: 100vH;
+        clip-path: url(#mask);
+    }
+    .pat-four .com-center h1 {
+        font-size: 8vw;
+    }
+    .pat-four .social2 {
+        grid-row: addbottom;
+        grid-column: left;
+        justify-self: start;
+        align-self: start;
+    }
+    .pat-four .mail-box {
+        grid-row: addtop;
+        grid-column: left;
+        align-self: end;
+        justify-self: end;
+    }
+    .pat-four .mail {
+        margin-right: 0;
+        align-self: end;
+    }
+    .pat-four .date {
+        border-bottom: none;
+        grid-row: date;
+        padding-bottom: 0;
+        grid-column: left;
+        align-self: end;
     }
 }

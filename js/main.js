@@ -145,10 +145,16 @@ function navScroll() {
                 // 'transform':'translateY(' + element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+ element1/200+')'
             });
-        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())) { //this statement is inbetween the top of section 4 and .05 of section 4
-            var element1 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()));
-            $('.tagline h1').css({ 
-                'transform':'translateX(' + element1/10 + 'px) rotate(' + element1/50 + 'deg)'
+            $('.nav-arrow').css({ 
+                'opacity': 1 + -element1/200
+            });   
+        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())*.9) { //this statement is inbetween the top of section 4 and .05 of section 4
+            var element2 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight())*.9);
+            $('.com-center h1 span:nth-child(even)').css({ 
+                'transform':'translateY(' + element2/4 + 'px) rotate(' + element2/30 + 'deg)'
+            });
+            $('.com-center h1 span:nth-child(odd)').css({ 
+                'transform':'translateY(' + -element2/4 + 'px) rotate(' + -element2/30 + 'deg)'
             });
             
         } else {
@@ -156,6 +162,22 @@ function navScroll() {
                 'transform':'translateY(0px)',
                 'background-color':'rgba(0,0,0,0)'
             });
+            $('.com-center h1 span').css({ 
+                'transform':'translateY(0px) rotate(0deg)'
+            });
+            $('.nav-arrow').css({ 
+                'opacity': 1 
+            });
+        }
+        //removing the module button
+        if (  wScroll >= ($(".sec-final").position().top)) {
+            $('.nav-arrow').css({ 
+                'display':'none'
+            });     
+        } else {
+            $('.nav-arrow').css({ 
+                'display':'flex'
+            });     
         }
 }
 // Navigation Logic
