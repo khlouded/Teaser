@@ -229,6 +229,7 @@ function strokeFont()  {
         currentElement.css("color", randomStyle);
     });
 }
+
 function ranColor()  {
     $(".invert").each(function(){
         var stroke = "#ffffff00";
@@ -341,8 +342,8 @@ $(window).scroll(function() {
 $(document).ready(function() {
     navScroll();
     navOpen();
-    ranFont();
     strokeFont();
+    ranFont();
     ranColor();
     favIcon()
     detectIEEdge()
@@ -350,7 +351,7 @@ $(document).ready(function() {
 $(window).resize(function() {
     navScroll();
     navOpen();
-    ranFont();
     strokeFont();
+    ranFont();    
     ranColor();
 });
