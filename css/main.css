@@ -163,6 +163,7 @@ nav {
     background: #000;
     position: fixed;
     width: 450px;
+    max-width: 100vw;
     padding: 40px;
     height: 100vH;
     border-left: 1px solid #fff;
@@ -589,3 +590,13 @@ This is the controls for each Section.
         -o-transform: translateX(-200px);  
     }
 }
+
+
+/* Decreases font size on screens smaller than 360px */
+@media only screen and (max-width: 360px) {
+
+        h1 {
+            font-size: 1.2em;
+        }     
+
+    }
