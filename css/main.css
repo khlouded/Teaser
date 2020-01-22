@@ -70,6 +70,7 @@ body {
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: #fff #00000000;
+    cursor: url("../imgs/cursor-scroll.png") 30 30, auto;
 }
 /* Custom Scroll bar */
 
@@ -133,7 +134,6 @@ nav {
     border-right: 10px solid #fff;
     border-top: 10px solid #fff;
     box-sizing: border-box;
-    cursor: pointer;
     transition: transform .5s;
 }
 .arrow:hover {
@@ -142,6 +142,8 @@ nav {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
+    cursor: url("../imgs/cursor-click.png") 30 30, pointer;
+
 }
 .arrow:before {
     content:'';
@@ -157,6 +159,8 @@ nav {
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
+    cursor: url("../imgs/cursor-click.png") 30 30, pointer;
+
 }
 /* Module */
 .module {
@@ -176,6 +180,7 @@ nav {
     z-index: 101;
     right: -450px;
     transition: right .6s ease-in-out  ;
+    cursor: auto;
 }
 
 /* Close Button */
@@ -220,7 +225,7 @@ nav {
     right:2px;
 }
 .close:hover {
-    cursor: pointer;
+    cursor: url("../imgs/cursor-click.png"), pointer;
 }
 /* Title */
 .title {
@@ -250,6 +255,7 @@ nav {
     font-size: 18pt;
     margin-bottom: 5px;
     margin-right: 30px;
+    cursor: url("../imgs/cursor-links.png") 30 30, pointer;
 }
 /* JS functions */
 /* Opening pop up module */
@@ -267,7 +273,7 @@ This is the controls for each Section.
 .section {
     display: flex;
     visibility: hidden;
-    height: 200vW; /* MAKE RESPONSIVE This height is too long for different widths*/
+    height: 200vW;
     min-height: 200vW;
     max-width: 100%;
     pointer-events: none;
