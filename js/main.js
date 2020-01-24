@@ -331,12 +331,139 @@ function detectIEEdge() {
     // other browser
     return false;
 }
+// This is the function that creates the cursor
+function customCursor() {
+    var moveControl = $(window);
+    cursor1 = $(".cursor--small");
+    cursorText = $(".cursor-text");
+    cursorScroll = $(".cursor-scroll");
+    cursorClick = $(".cursor-click");
+    cursorConnect = $(".cursor-connect");
+    cursorClose = $(".cursor-close");
+    cursorDate = $(".cursor-date");
+    moveControl.mousemove(function(e){
+        var valueX = e.clientX;
+        var valueY = e.clientY;
+        cursor1.css({
+            "transform" : 'translate3D(' + valueX + 'px,' + valueY + 'px,0)'
+        });
+    });
+    $(".arrow, .close, .social, .mail, .date").mouseleave(function(){ //LEAVE
+        cursorScroll.removeClass("no-opacity");
+        cursorClick.addClass("no-opacity");
+        cursorConnect.addClass("no-opacity");		
+        cursorClose.addClass("no-opacity");		
+        cursorDate.addClass("no-opacity");
+        cursor1.css({
+            'width' : '90px',
+            'height' : '90px',
+            'left' : '-45px',
+            'top' : '-45px',
+            'mix-blend-mode' : 'difference',
+            'opacity' : '1'
 
+        });
+        cursorText.css({
+            'font-size' : '.6em',
+            'mix-blend-mode' : 'difference',
+            'color' : '#fff'
+        });	
+    });
+    // If the mouse goes over the mousenter function
+    $(".arrow").mouseenter(function(){
+        cursorScroll.addClass("no-opacity");
+        cursorClick.removeClass("no-opacity");
+        cursorConnect.addClass("no-opacity");		
+        cursorClose.addClass("no-opacity");		
+        cursorDate.addClass("no-opacity");
+        cursor1.css({
+            'width' : '50px',
+            'height' : '50px',
+            'left' : '-25px',
+            'top' : '-25px',
+            'mix-blend-mode' : 'normal',
+            'opacity' : '.9'
+        });	
+        cursorText.css({
+            'font-size' : '.4em'
+        });	
+    });
+
+    //close button hover
+    $(".close").mouseenter(function(){
+        cursorScroll.addClass("no-opacity");
+        cursorClick.addClass("no-opacity");
+        cursorConnect.addClass("no-opacity");		
+        cursorClose.removeClass("no-opacity");	
+        cursorDate.addClass("no-opacity");	
+        cursor1.css({
+            'width' : '50px',
+            'height' : '50px',
+            'left' : '-25px',
+            'top' : '-25px',
+            'mix-blend-mode' : 'normal',
+            'opacity' : '.9'
+        });
+        cursorText.css({
+            'font-size' : '.4em',
+        });	
+    });
+    //social hover
+    $(".social, .mail").mouseenter(function(){
+        cursorScroll.addClass("no-opacity");
+        cursorClick.addClass("no-opacity");
+        cursorConnect.removeClass("no-opacity");		
+        cursorClose.addClass("no-opacity");	
+        cursorDate.addClass("no-opacity");	
+        cursor1.css({
+            'width' : '50px',
+            'height' : '50px',
+            'left' : '-25px',
+            'top' : '-25px',
+            'mix-blend-mode' : 'normal',
+            'opacity' : '.9'
+        });		
+        cursorText.css({
+            'font-size' : '.4em',
+        });	
+    });
+    //date hover
+    $(".date").mouseenter(function(){
+        cursorScroll.addClass("no-opacity");
+        cursorClick.addClass("no-opacity");
+        cursorConnect.addClass("no-opacity");		
+        cursorClose.addClass("no-opacity");	
+        cursorDate.removeClass("no-opacity");	
+        cursor1.css({
+            'mix-blend-mode' : 'normal',
+            'opacity' : '.9'
+        });				
+    });
+    $(document).click(function() {
+        cursor1.css({
+            'width' : '150px',
+            'height' : '150px',
+            'left' : '-75px',
+            'top' : '-75px',
+
+        });
+        setTimeout(function () { 
+            cursor1.css({           
+                'width' : '90px',
+                'height' : '90px',
+                'left' : '-45px',
+                'top' : '-45px'
+            });
+        }, 100);
+    });
+
+// set the starting position of the cursor outside of the screen
+}
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly
 $(window).scroll(function() {
     navScroll();
     navOpen();
-
+    customCursor()
 });
 // These functions check a variety of things and runs the previously mentioned function. 
 $(document).ready(function() {
@@ -347,6 +474,7 @@ $(document).ready(function() {
     ranColor();
     favIcon()
     detectIEEdge()
+    customCursor()
 });
 $(window).resize(function() {
     navScroll();
@@ -354,4 +482,5 @@ $(window).resize(function() {
     strokeFont();
     ranFont();    
     ranColor();
+    customCursor()
 });

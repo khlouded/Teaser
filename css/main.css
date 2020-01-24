@@ -50,6 +50,9 @@ Instructional Notes
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf");
 }
 /* Main Layout and init resizing */
+body {
+    cursor: none;
+}
 html {
     margin: 0px;
     padding: 0px;
@@ -70,7 +73,6 @@ body {
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: #fff #00000000;
-    cursor: url("../imgs/cursor-scroll.png") 30 30, auto;
 }
 /* Custom Scroll bar */
 
@@ -142,7 +144,7 @@ nav {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
-    cursor: url("../imgs/cursor-click.png") 30 30, pointer;
+    
 
 }
 .arrow:before {
@@ -159,8 +161,6 @@ nav {
     -moz-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
-    cursor: url("../imgs/cursor-click.png") 30 30, pointer;
-
 }
 /* Module */
 .module {
@@ -180,7 +180,6 @@ nav {
     z-index: 101;
     right: -450px;
     transition: right .6s ease-in-out  ;
-    cursor: auto;
 }
 
 /* Close Button */
@@ -224,9 +223,6 @@ nav {
     -o-transform: rotate(-45deg); 
     right:2px;
 }
-.close:hover {
-    cursor: url("../imgs/cursor-click.png"), pointer;
-}
 /* Title */
 .title {
     display: flex;
@@ -255,7 +251,6 @@ nav {
     font-size: 18pt;
     margin-bottom: 5px;
     margin-right: 30px;
-    cursor: url("../imgs/cursor-links.png") 30 30, pointer;
 }
 /* JS functions */
 /* Opening pop up module */
@@ -266,7 +261,26 @@ nav {
 /*************************************
 This is the end of the Navigation edits 
 ************************************/
-
+/* Gonna add some hover effects for the sick duds */
+.pat-three .variable span, .pat-one .variable span {
+    display: inline-block;
+    transition: transform .1s;
+}
+.pattern .variable span:hover {
+    transform: scale(.9) rotate(3deg);
+}
+.pat-two .com-mid .variable span {
+    transition: color .5s ;
+}
+.pat-two .com-mid .variable span:hover {
+    color: #fff;
+}
+.pat-two .com-top .variable span, .pat-two .com-bot .variable span {
+    transition: color .5s ;
+}
+.pat-two .com-top .variable span:hover, .pat-two .com-bot .variable span:hover {
+    color: #000;
+}
 /******************************************* Main Section Layout 
 This is the controls for each Section.
 ********************************************/
@@ -375,6 +389,7 @@ This is the controls for each Section.
     display: flex;
     flex-direction: column;
     align-items:center;
+    justify-content: center;
 }
 .pat-two .comp h1 {
     position: absolute;
@@ -387,6 +402,9 @@ This is the controls for each Section.
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
     -webkit-text-stroke: .5px #fff;
 }
+/* .pat-two .comp h1 span {
+    position: relative;
+} */
 .pat-two .com-top {
     top:0;
     transform: translateX(0);
@@ -530,23 +548,65 @@ This is the controls for each Section.
     font-size: 9vw;
     grid-column: span 2;
     grid-row-start: mid;
-    /* -webkit-text-stroke: .5px #fff; */
+
     /* color: #ffffff00; */
     transform: translateX(0);
     margin: 0;
+    z-index: -10;
 }
 .com-center h1 {
     margin: 0;  
     padding: 0;
+    -webkit-text-stroke: .5px #fff;
+    /* pointer-events: none; */
 }
 .com-center h1 span {
     display: inline-block; 
+    transition: color .3s, transform .3s;
+}
+.com-center h1 span:hover {
+    color: #000;
+    transition: color 1s, transform 1s;
+    transform: scale(.9) rotate(53deg);
 }
 /* .pat-four .comp h1{
 
     animation: motionX 20s linear 0s infinite forwards ;
     -webkit-animation: motionX 20s linear 0s infinite forwards ;
 } */
+
+/* Cursor testing */
+.cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cursor--small {
+    width: 90px;
+    height: 90px;
+    left: -45px;
+    top: -45px;
+    border-radius: 50%;
+    z-index: 11000;
+    background: #fff;
+    mix-blend-mode: difference;
+    transition: width .3s, height .3s, left .3s, top .3s;
+}
+p.cursor-text {
+    position: absolute;
+    font-size: .6em;
+    color: #fff;
+    mix-blend-mode: difference;
+    /* top: 22.5px; */
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    transition: opacity .5s, font-size .5s;
+}
 /* This inverts the color of the screen */
 .invert {
     position: fixed;
@@ -615,18 +675,18 @@ This is the controls for each Section.
   /* Standard syntax */
 @keyframes motionY {
     from {
-        transform: translateX(200px);
-        -webkit-transform: translateX(200px);
-        -moz-transform: translateX(200px);
-        -ms-transform: translateX(200px);
-        -o-transform: translateX(200px);  
+        transform: translateY(200px);
+        -webkit-transform: translateY(200px);
+        -moz-transform: translateY(200px);
+        -ms-transform: translateY(200px);
+        -o-transform: translateY(200px);  
     }
     to {
-        transform: translateX(-200px);
-        -webkit-transform: translateX(-200px);
-        -moz-transform: translateX(-200px);
-        -ms-transform: translateX(-200px);
-        -o-transform: translateX(-200px);  
+        transform: translateY(-200px);
+        -webkit-transform: translateY(-200px);
+        -moz-transform: translateY(-200px);
+        -ms-transform: translateY(-200px);
+        -o-transform: translateY(-200px);  
     }
 }
 @-webkit-keyframes affordance {
