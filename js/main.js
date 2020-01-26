@@ -43,7 +43,7 @@ function navScroll() {
             $('.sec-two').removeClass('visible-show');
         }
         // If the scroll position is passed the bottom of section two (THIS IS SECTION THREE)
-        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
+        if (wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {
             // console.log("Section-Three");
             $('.sec-two').removeClass('visible-show');
             $('.sec-three').addClass('visible-show');
@@ -66,21 +66,19 @@ function navScroll() {
             $('.sec-three').removeClass('visible-show');
         }
         //If the scroll position is passed the bottom of section three (THIS IS SECTION FOUR)
-        if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {//so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
-            // console.log("Section-Three");
-            
+
+        if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()) ) {
+            // console.log("Section-Four");
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
-            var element4 = Math.abs(wScroll - $(".sec-final").position().top);
-            // console.log(element4  + " break four");
-                // $('.com-center').css({ 
-                //     'transform':'translateX(' + -element4 + 'px) '
-                // });
+            $(".cursor-scroll").addClass("no-opacity");
+            // var element4 = Math.abs(wScroll - $(".sec-final").position().top);
         } else {
             $('.sec-final').removeClass('visible-show');
+            // $(".cursor-scroll").removeClass("no-opacity");
         }
-        var startTrans = 0.1;
-        var endTrans = 0.9;
+        var startTrans = 0.05;
+        var endTrans = 0.95;
         //additional animations
         //10% into the first section, the word scroll will dissappear
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight() * startTrans) ) {
@@ -88,75 +86,78 @@ function navScroll() {
         } else {
             $('.tagline p').addClass('no-opacity');
         }
+        //Transitional Breakpoints creating opacity overlays and tagline transforms
+        // the variable allows for the end of the section be set to zero
         if (wScroll <= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll >= ($(".sec-one").position().top) + $(".sec-one").innerHeight()*endTrans) { // This statement is inbetween .95 of section one and the bottom of section one
             var element1 = Math.abs(wScroll - (($(".sec-one").position().top) + $(".sec-one").innerHeight()*endTrans));
             Number.prototype.clamp = function(min, max) {
                 return Math.min(Math.max(this, min), max);
-            };
-            var opacity = element1.clamp(0, 100)
-            
+            };            
             $('.tagline h1').css({ 
-                'transform':'translateY(' + -element1*1 + 'px)',
+                'transform':'translateY(' + -element1*1 + 'px)'
             });
             $('.tagline').css({ 
-                // 'transform':'translateY(' + -element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+ element1/200 +')'
             });
         } else if (  wScroll >= ($(".sec-two").position().top) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans)) { //this statement is inbetween the top of section 2 and .05 of section 2
             var element1 = Math.abs(wScroll - ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans));
 
             $('.tagline h1').css({ 
-                'transform':'translateY(' + element1*1 + 'px)',
+                'transform':'translateY(' + element1*1 + 'px)'
             });
             $('.tagline').css({ 
-                // 'transform':'translateY(' + -element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+  element1/200+')'
             });
 
         } else if (wScroll <= $(".sec-two").position().top + $(".sec-two").innerHeight() && wScroll >= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans ) {// This statement is inbetween .95 of section two and the bottom of section two
             var element1 = Math.abs(wScroll - (($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans));
-
             $('.tagline h1').css({ 
-                'transform':'translateY(' + -element1*1 + 'px)',
+                'transform':'translateY(' + -element1*1 + 'px)'
             });
             $('.tagline').css({ 
-                // 'transform':'translateY(' + element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+  element1/200+')'
             });
             console.log(element1/100)
         } else if (  wScroll >= ($(".sec-three").position().top) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans)) { //this statement is inbetween the top of section 3 and .05 of section 3
             var element1 = Math.abs(wScroll - ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans));
-            
             $('.tagline h1').css({ 
-                'transform':'translateY(' + element1*1 + 'px)',
+                'transform':'translateY(' + element1*1 + 'px)'
             });
             $('.tagline').css({ 
-                // 'transform':'translateY(' + -element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+ element1/200+')'
             });
 
         } else if (wScroll <= $(".sec-three").position().top + $(".sec-three").innerHeight() && wScroll >= ($(".sec-three").position().top) + $(".sec-three").innerHeight()*endTrans ) {// This statement is inbetween .95 of section three and the bottom of section three
             var element1 = Math.abs(wScroll - (($(".sec-three").position().top) + $(".sec-three").innerHeight()*endTrans));
-            
             $('.tagline h1').css({ 
-                'transform':'translateY(' + -element1*1 + 'px)',
+                'transform':'translateY(' + -element1*1 + 'px)'
             });
             $('.tagline').css({ 
-                // 'transform':'translateY(' + element1*1 + 'px)',
                 'background-color':'rgba(0, 0, 0,'+ element1/200+')'
             });
             $('.nav-arrow').css({ 
                 'opacity': 1 + -element1/200
             });   
-        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight())*.9) { //this statement is inbetween the top of section 4 and .05 of section 4
-            var element2 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight())*.9);
+        } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight()*.7)) { //this statement is inbetween the top of section 4 and .7 of section 4
+            var element2 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()*.7));
+            console.log(element2)
             $('.com-center h1 span:nth-child(even)').css({ 
                 'transform':'translateY(' + element2/4 + 'px) rotate(' + element2/30 + 'deg)'
             });
             $('.com-center h1 span:nth-child(odd)').css({ 
                 'transform':'translateY(' + -element2/4 + 'px) rotate(' + -element2/30 + 'deg)'
+            });   
+        } else if (wScroll >= ($(".sec-final").position().top) + $(".sec-final").innerHeight()*.7 ){// This statement is inbetween .7 of section
+            $('.tagline').css({ 
+                'transform':'translateY(0px)',
+                'background-color':'rgba(0,0,0,0)'
             });
-            
+            $('.com-center h1 span').css({ 
+                'transform':'translateY(0px) rotate(0deg)'
+            });
+            $('.nav-arrow').css({ 
+                'opacity': 1 
+            });
         } else {
             $('.tagline').css({ 
                 'transform':'translateY(0px)',
@@ -203,7 +204,6 @@ function ranFont() {
         var currentElement = $(this); //this targets every current element, and iterates it from the first to the last. Since we used lettery
         var size = currentElement.css("font-size"); // this gets the size of the element so that we can manipulate it later
         // console.log(size);
-
         currentElement.css("font-family", randomFont + ", sans serif");//This sets the css property with the randomFont. The bread and butter of the function
 
         if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans serif"  ) {
@@ -216,20 +216,20 @@ function ranFont() {
     });
 }
 
-
 // Stroke vs Fill
+//currently this isn't working
 function strokeFont()  {
     $(".stroke span").each(function(){
         var stroke = "#ffffff00";
         var fill = "#fff";
         var style = [stroke, fill, fill];
         var randomStyle = style[Math.floor(Math.random()*style.length)];
-    
+
         var currentElement = $(this);
         currentElement.css("color", randomStyle);
     });
 }
-
+//this changes the entire page, making the user experience different for everyone
 function ranColor()  {
     $(".invert").each(function(){
         var stroke = "#ffffff00";
@@ -338,9 +338,10 @@ function customCursor() {
     cursorText = $(".cursor-text");
     cursorScroll = $(".cursor-scroll");
     cursorClick = $(".cursor-click");
-    cursorConnect = $(".cursor-connect");
+    // cursorConnect = $(".cursor-connect");
     cursorClose = $(".cursor-close");
     cursorDate = $(".cursor-date");
+
     moveControl.mousemove(function(e){
         var valueX = e.clientX;
         var valueY = e.clientY;
@@ -351,7 +352,7 @@ function customCursor() {
     $(".arrow, .close, .social, .mail, .date").mouseleave(function(){ //LEAVE
         cursorScroll.removeClass("no-opacity");
         cursorClick.addClass("no-opacity");
-        cursorConnect.addClass("no-opacity");		
+        // cursorConnect.addClass("no-opacity");		
         cursorClose.addClass("no-opacity");		
         cursorDate.addClass("no-opacity");
         cursor1.css({
@@ -361,7 +362,6 @@ function customCursor() {
             'top' : '-45px',
             'mix-blend-mode' : 'difference',
             'opacity' : '1'
-
         });
         cursorText.css({
             'font-size' : '.6em',
@@ -372,8 +372,7 @@ function customCursor() {
     // If the mouse goes over the mousenter function
     $(".arrow").mouseenter(function(){
         cursorScroll.addClass("no-opacity");
-        cursorClick.removeClass("no-opacity");
-        cursorConnect.addClass("no-opacity");		
+        cursorClick.removeClass("no-opacity");	
         cursorClose.addClass("no-opacity");		
         cursorDate.addClass("no-opacity");
         cursor1.css({
@@ -392,8 +391,7 @@ function customCursor() {
     //close button hover
     $(".close").mouseenter(function(){
         cursorScroll.addClass("no-opacity");
-        cursorClick.addClass("no-opacity");
-        cursorConnect.addClass("no-opacity");		
+        cursorClick.addClass("no-opacity");	
         cursorClose.removeClass("no-opacity");	
         cursorDate.addClass("no-opacity");	
         cursor1.css({
@@ -412,16 +410,16 @@ function customCursor() {
     $(".social, .mail").mouseenter(function(){
         cursorScroll.addClass("no-opacity");
         cursorClick.addClass("no-opacity");
-        cursorConnect.removeClass("no-opacity");		
+        // cursorConnect.removeClass("no-opacity");		
         cursorClose.addClass("no-opacity");	
         cursorDate.addClass("no-opacity");	
         cursor1.css({
-            'width' : '50px',
-            'height' : '50px',
-            'left' : '-25px',
-            'top' : '-25px',
+            'width' : '10px',
+            'height' : '10px',
+            'left' : '-5px',
+            'top' : '-5px',
             'mix-blend-mode' : 'normal',
-            'opacity' : '.9'
+            // 'opacity' : '1'
         });		
         cursorText.css({
             'font-size' : '.4em',
@@ -430,8 +428,7 @@ function customCursor() {
     //date hover
     $(".date").mouseenter(function(){
         cursorScroll.addClass("no-opacity");
-        cursorClick.addClass("no-opacity");
-        cursorConnect.addClass("no-opacity");		
+        cursorClick.addClass("no-opacity");	
         cursorClose.addClass("no-opacity");	
         cursorDate.removeClass("no-opacity");	
         cursor1.css({
@@ -457,16 +454,24 @@ function customCursor() {
         }, 100);
     });
 
+    if ($('.tagline p').hasClass('no-opacity')) {
+        cursorScroll.removeClass("no-opacity");
+    } else {
+        cursorScroll.addClass("no-opacity");
+    }
+
+
 // set the starting position of the cursor outside of the screen
 }
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly
 $(window).scroll(function() {
+    customCursor()
     navScroll();
     navOpen();
-    customCursor()
 });
 // These functions check a variety of things and runs the previously mentioned function. 
 $(document).ready(function() {
+    customCursor()
     navScroll();
     navOpen();
     strokeFont();
@@ -474,13 +479,15 @@ $(document).ready(function() {
     ranColor();
     favIcon()
     detectIEEdge()
-    customCursor()
+
 });
+// this allows for resize changes, so that we can redu all of the items
 $(window).resize(function() {
+    customCursor()
     navScroll();
     navOpen();
     strokeFont();
     ranFont();    
     ranColor();
-    customCursor()
+    
 });
