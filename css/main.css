@@ -232,10 +232,12 @@ nav {
     margin-bottom: 30px;
 }
 /* date */
+.module .date {
+    width: 100%;
+}
 .date {
     padding-bottom: 40px;
     border-bottom: 1px solid #fff;
-    width: 100%;
 }
 .date p {
     margin: 0;
@@ -541,6 +543,7 @@ This is the controls for each Section.
     grid-row: date;
     padding-bottom: 0;
     grid-column: right;
+    justify-self: end;
     align-self: end;
     text-align: right;
     
