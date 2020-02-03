@@ -306,7 +306,7 @@ This is the controls for each Section.
     position: absolute;
     display:flex;
     align-items: center;
-    margin-top: 400px;
+    margin-top: 25vH;
     opacity: 1;
     transition: opacity 1s;
 }
@@ -574,7 +574,7 @@ This is the controls for each Section.
 /* Gonna add some hover effects for the sick duds */
 .pat-three .variable span, .pat-one .variable span {
     display: inline-block;
-    transition: transform .1s;
+    transition: transform .4s;
 }
 .pat-three .variable span:hover {
     transform: scale(.9) rotate(3deg);
