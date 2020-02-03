@@ -37,12 +37,12 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.woff2");
     src: url("../fnts/Parabole-Regular.otf");
 }
-@font-face {
+/* @font-face {
     font-family: "Helvetica Neue Lt Std";
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.woff2");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf");
-}
+} */
 /* Main Layout and init resizing */
 body {
     cursor: none;
@@ -99,6 +99,7 @@ h2 {
 p { 
     font-size: 18pt;
     font-weight: 400;
+    text-transform: uppercase;
 }
 a {
     color: #fff;
@@ -106,7 +107,7 @@ a {
     font-size: 1em;
     font-weight: 400;
     cursor: none;
-    /* text-transform: uppercase; */
+    text-transform: uppercase;
 }
 /******************************************** Navigation
 This is just the module
@@ -492,17 +493,20 @@ This is the controls for each Section.
     grid-column: right;
     justify-self: end;
     align-self: start;
+    text-align: right;
+}
+.pat-four .social2 a.social {
+    margin-right: 0;
 }
 .pat-four .social {
     display: inline-block;
 }
-.pat-four .mail-box {
+.pat-four .college {
     grid-row: date;
-    grid-column: right;
+    grid-column: left;
     align-self: end;
-    justify-self: end;
 }
-.pat-four .mail {
+.pat-four .college p {
     margin-right: 0;
     align-self: end;
     margin-bottom: 0;
@@ -511,8 +515,10 @@ This is the controls for each Section.
     border-bottom: none;
     grid-row: date;
     padding-bottom: 0;
-    grid-column: left;
+    grid-column: right;
     align-self: end;
+    text-align: right;
+    
 }
 .pat-four .date p {
     padding: 0;

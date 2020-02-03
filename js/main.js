@@ -159,6 +159,13 @@ function navScroll() {
             $('.nav-arrow').css({ 
                 'opacity': 1 
             });
+        } else if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*endTrans) || wScroll <= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans && wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans) ) {
+            $('.tagline h1').css({ 
+                'transform':'translateY(0)'
+            });
+            $('.tagline').css({ 
+                'background-color':'rgba(0,0,0,0)'
+            });
         } else {
             $('.tagline').css({ 
                 'transform':'translateY(0px)',
@@ -198,7 +205,7 @@ function ranFont() {
     $(".variable").lettering(); // this breaks the text up into spans, with classes (in css we can target even or odd with :nth-child(even))
 
     $(".variable span").each(function(){
-        var helvetica = "Helvetica Neue Lt Std"; // check to see what it is actually called once we get the fonts
+        var helvetica = "Roboto"; // check to see what it is actually called once we get the fonts
         var parabole = 'Parabole Regular';
         var fonts = [helvetica, parabole]; //an array with the different possible fonts
         var randomFont = fonts[Math.floor(Math.random()*fonts.length)]; //This spits out a random choice between helvetica and parabole
