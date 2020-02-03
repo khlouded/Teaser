@@ -1,4 +1,5 @@
 //Scroll Logic
+//edits
 function navScroll() {
     //therefore when ever you scroll the window it will activate the contents of this function
         var wScroll = $(window).scrollTop(); // a variable that is a number that describes how far you have scrolled
