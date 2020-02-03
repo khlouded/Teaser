@@ -205,7 +205,7 @@ function ranFont() {
     $(".variable").lettering(); // this breaks the text up into spans, with classes (in css we can target even or odd with :nth-child(even))
 
     $(".variable span").each(function(){
-        var helvetica = "Roboto"; // check to see what it is actually called once we get the fonts
+        var helvetica = "Helvetica Neue"; // check to see what it is actually called once we get the fonts
         var parabole = 'Parabole Regular';
         var fonts = [helvetica, parabole]; //an array with the different possible fonts
         var randomFont = fonts[Math.floor(Math.random()*fonts.length)]; //This spits out a random choice between helvetica and parabole
@@ -214,7 +214,7 @@ function ranFont() {
         // console.log(size);
         currentElement.css("font-family", randomFont + ", sans serif");//This sets the css property with the randomFont. The bread and butter of the function
 
-        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans serif"  ) {
+        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans serif" || currentElement.css("font-family") == "Helvetica, sans serif" || currentElement.css("font-family") == "\"Helvetica\", sans serif"  ) {
             // console.log("Helvetica");
             currentElement.css({'font-size':"calc( " + size + " * 0.98)"});
         } else {
