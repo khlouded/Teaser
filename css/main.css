@@ -52,6 +52,7 @@ html {
     padding: 0px;
     --scrollbarBG: #00000000;
     --thumbBG: #fff;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -133,6 +134,7 @@ nav {
     border-top: 10px solid #fff;
     box-sizing: border-box;
     transition: transform .5s;
+    pointer-events: all;
 }
 .arrow:hover {
     transform: rotate(180deg);
@@ -140,8 +142,6 @@ nav {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
-    
-
 }
 .arrow:before {
     content:'';
@@ -607,6 +607,59 @@ This is the controls for each Section.
     color: #000;
 }
 
+/* back to top button  */
+.tag-four {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+/* Back to top button */
+.tag-four .arrow2 {
+    position: relative;
+    margin: 30px;
+    width: 80px;
+    height: 80px;
+    border-right: 10px solid #fff;
+    border-top: 10px solid #fff;
+    box-sizing: border-box;
+    transition: transform .5s;
+    pointer-events: all;
+    transform: rotate(-45deg) scale(.5);
+    -webkit-transform: rotate(-45deg) scale(.5);
+    -moz-transform: rotate(-45deg) scale(.5);
+    -ms-transform: rotate(-45deg) scale(.5);
+    -o-transform: rotate(-45deg) scale(.5);
+}
+.tag-four .arrow2:hover {
+    transform: rotate(-45deg) scale(1);
+    -webkit-transform: rotate(-45deg) scale(1);
+    -moz-transform: rotate(-45deg) scale(1);
+    -ms-transform: rotate(-45deg) scale(1);
+    -o-transform: rotate(-45deg) scale(1);
+}
+.arrow2:before {
+    content:'';
+    position:absolute;
+    width:100px;
+    height:10px;
+    background-color:white;
+    top:-7px;
+    right:0px;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+}
 /* Cursor testing */
 .cursor {
     position: fixed;

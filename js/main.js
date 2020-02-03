@@ -141,17 +141,28 @@ function navScroll() {
             });   
         } else if (  wScroll >= ($(".sec-final").position().top) && wScroll <= ($(".sec-final").position().top + $(".sec-final").innerHeight()*.7)) { //this statement is inbetween the top of section 4 and .7 of section 4
             var element2 = Math.abs(wScroll - ($(".sec-final").position().top + $(".sec-final").innerHeight()*.7));
-            console.log(element2)
+            // console.log(element2)
+            $('.tagline h1').css({ 
+                'transform':'translateY(0px)'
+            });
+            $('.tagline').css({ 
+                'background-color':'rgba(0,0,0,0)'
+            });
             $('.com-center h1 span:nth-child(even)').css({ 
                 'transform':'translateY(' + element2/4 + 'px) rotate(' + element2/30 + 'deg)'
             });
             $('.com-center h1 span:nth-child(odd)').css({ 
                 'transform':'translateY(' + -element2/4 + 'px) rotate(' + -element2/30 + 'deg)'
             });   
-        } else if (wScroll >= ($(".sec-final").position().top) + $(".sec-final").innerHeight()*.7 ){// This statement is inbetween .7 of section
+            $('.tag-four').css({ 
+                'opacity': 0
+            });
+        } else if (wScroll >= ($(".sec-final").position().top) + $(".sec-final").innerHeight()*.7 ){// This statement is inbetween .7 of section and end
             $('.tagline').css({ 
-                'transform':'translateY(0px)',
                 'background-color':'rgba(0,0,0,0)'
+            });
+            $('.tagline h1').css({ 
+                'transform':'translateY(0px)'
             });
             $('.com-center h1 span').css({ 
                 'transform':'translateY(0px) rotate(0deg)'
@@ -159,6 +170,11 @@ function navScroll() {
             $('.nav-arrow').css({ 
                 'opacity': 1 
             });
+
+            $('.tag-four').css({ 
+                'opacity': 1 
+            });
+            
         } else if (wScroll >= ($(".sec-three").position().top + $(".sec-three").innerHeight()*startTrans) && wScroll <= ($(".sec-three").position().top + $(".sec-three").innerHeight()*endTrans) || wScroll <= ($(".sec-two").position().top) + $(".sec-two").innerHeight()*endTrans && wScroll >= ($(".sec-two").position().top + $(".sec-two").innerHeight()*startTrans) ) {
             $('.tagline h1').css({ 
                 'transform':'translateY(0)'
@@ -166,6 +182,10 @@ function navScroll() {
             $('.tagline').css({ 
                 'background-color':'rgba(0,0,0,0)'
             });
+            $('.nav-arrow').css({ 
+                'opacity': 1 
+            });
+            
         } else {
             $('.tagline').css({ 
                 'transform':'translateY(0px)',
@@ -176,6 +196,9 @@ function navScroll() {
             });
             $('.nav-arrow').css({ 
                 'opacity': 1 
+            });
+            $('.tag-four').css({ 
+                'opacity': 0
             });
         }
         //removing the module button
