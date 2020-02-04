@@ -226,9 +226,11 @@ function navOpen() {
 
 function ranFont() {
     $(".variable").lettering(); // this breaks the text up into spans, with classes (in css we can target even or odd with :nth-child(even))
+    
+    // Helvetica Neue TESTING HERE CHANGE AFTER
 
     $(".variable span").each(function(){
-        var helvetica = "Helvetica Neue"; // check to see what it is actually called once we get the fonts
+        var helvetica = "Roboto"; // check to see what it is actually called once we get the fonts
         var parabole = 'Parabole Regular';
         var fonts = [helvetica, parabole]; //an array with the different possible fonts
         var randomFont = fonts[Math.floor(Math.random()*fonts.length)]; //This spits out a random choice between helvetica and parabole
