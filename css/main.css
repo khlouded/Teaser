@@ -37,12 +37,12 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.woff2");
     src: url("../fnts/Parabole-Regular.otf");
 }
-/* @font-face {
+@font-face {
     font-family: "Helvetica Neue";
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.WOFF");
-    src: url("../fnts/helvetica_edit/HelveticaNeueLTStd-Lt.woff2");
-    src: url("../fnts/helvetica_edit/HelveticaNeueLTStd-Lt.otf");
-} */
+    /* src: url("../fnts/helvetica_edit/HelveticaNeueLTStd-Lt.woff2");*/
+    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf"); 
+}
 /* Main Layout and init resizing */
 body {
     cursor: none;
