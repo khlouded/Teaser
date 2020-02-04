@@ -243,14 +243,10 @@ nav {
     margin: 0;
     padding: 0;
 }
-.module .college {
+.module .compliant {
     align-self: end;
-}
-.module .college p {
-    font-size: 14pt;
     margin: 0;
     padding: 0;
-    line-height: 18pt;
 }
 /* Social in module */
 .social, .mail {

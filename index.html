@@ -60,10 +60,6 @@
         </div>
         <!-- This is the compliance attribute -->
         <div class="compliant"><img class="compliance" alt="York Logo" src="imgs/school_logos/Logo_York_University.svg"><img class="compliance" src="imgs/school_logos/Sheridan_College_2013_logo.svg" alt="Sheridan Logo"></div>
-        <!-- <div class="college">
-            <p>York University / Sheridan College Program in Design</p>
-        </div> -->
-        <!-- Removed the repitition of the compliance -->
         
     </nav>
 
@@ -74,15 +70,16 @@
             <h1 class="variable">To the future</h1>
             <p class="scroll">scroll down</p>
         </div>
+        <!-- THe patterns and taglines are fixed and are appearing on certain breakpoints on scroll. So the flow is heavily reliant on jquery. Hopefully jquery is responsive on all browsers.  -->
         <div class="pattern pat-one">
             <div class="comp com-vert"><h1 class="variable">2020</h1></div>
         </div>
     </div>
     <div class="section sec-two">
-        <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-two">
             <h1 class="variable">To New Beginnings</h1>
         </div>
+
         <div class="pattern pat-two">
             <div class="comp com-top"><h1 class="variable stroke">202020202020202020202020</h1></div>
             <div class="comp com-mid"><h1 class="variable">202020202020202020202020</h1></div>
@@ -91,11 +88,10 @@
         </div>
     </div>
     <div class="section sec-three">
-        <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-three">
             <h1 class="variable">To Emerging Creatives</h1>
         </div>
-
+        <!-- The patterns are using text-orientation which makes it difficult to be browser supported as some sites do not support text-orientation. therefore I added a -webkit feature- -->
         <div class="pattern pat-three">
             <div class="comp com-left"><h1 class="variable stroke">20202020202020202020</h1></div>
             <div class="comp com-mleft"><h1 class="variable">20202020202020202020</h1></div>
@@ -104,11 +100,10 @@
         </div>
     </div>
     <div class="section sec-final">
-        <!-- This first textbox will include the tagline. Most items will be defined by a textbox tag as this project is more text based than anything. Since we have a class set on -->
         <div class="tagline tag-four">
             <a href="#top"><div class="arrow2"></div></a>
         </div>
-
+        <!--  I put the content in the pattern but I could have totally put it in the tagline. It just helps in reducing the amount of jquery editing as the tagline jquery scroll changes all of them and not just the visible one -->
         <div class="pattern pat-four">
             <div class="college">
                 <p >York University / Sheridan College Program in Design</p>
