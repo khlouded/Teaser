@@ -24,6 +24,7 @@ function navScroll() {
             // console.log(element1 + " break one");
         } else {
             $('.sec-one').removeClass('visible-show');
+
         }
         // If the scroll position is passed the bottom of section one (THIS IS SECTION TWO)
         if (wScroll >= ($(".sec-one").position().top + $(".sec-one").innerHeight()) && wScroll <= ($(".sec-two").position().top + $(".sec-two").innerHeight())) { //so what i'm doing is finding the position of the bottom of the first element and comparing that to the scroll value
@@ -72,11 +73,9 @@ function navScroll() {
             // console.log("Section-Four");
             $('.sec-three').removeClass('visible-show');
             $('.sec-final').addClass('visible-show');
-            $(".cursor-scroll").addClass("no-opacity");
             // var element4 = Math.abs(wScroll - $(".sec-final").position().top);
         } else {
             $('.sec-final').removeClass('visible-show');
-            // $(".cursor-scroll").removeClass("no-opacity");
         }
         var startTrans = 0.05;
         var endTrans = 0.95;
@@ -382,8 +381,8 @@ function customCursor() {
             "transform" : 'translate3D(' + valueX + 'px,' + valueY + 'px,0)'
         });
     });
+
     $(".arrow, .close, .social, .mail, .date").mouseleave(function(){ //LEAVE
-        cursorScroll.removeClass("no-opacity");
         cursorClick.addClass("no-opacity");
         // cursorConnect.addClass("no-opacity");		
         cursorClose.addClass("no-opacity");		
@@ -402,9 +401,9 @@ function customCursor() {
             'color' : '#fff'
         });	
     });
+
     // If the mouse goes over the mousenter function
     $(".arrow").mouseenter(function(){
-        cursorScroll.addClass("no-opacity");
         cursorClick.removeClass("no-opacity");	
         cursorClose.addClass("no-opacity");		
         cursorDate.addClass("no-opacity");
@@ -423,7 +422,6 @@ function customCursor() {
 
     //close button hover
     $(".close").mouseenter(function(){
-        cursorScroll.addClass("no-opacity");
         cursorClick.addClass("no-opacity");	
         cursorClose.removeClass("no-opacity");	
         cursorDate.addClass("no-opacity");	
@@ -441,7 +439,6 @@ function customCursor() {
     });
     //social hover
     $(".social, .mail").mouseenter(function(){
-        cursorScroll.addClass("no-opacity");
         cursorClick.addClass("no-opacity");
         // cursorConnect.removeClass("no-opacity");		
         cursorClose.addClass("no-opacity");	
@@ -460,7 +457,6 @@ function customCursor() {
     });
     //date hover
     $(".date").mouseenter(function(){
-        cursorScroll.addClass("no-opacity");
         cursorClick.addClass("no-opacity");	
         cursorClose.addClass("no-opacity");	
         cursorDate.removeClass("no-opacity");	
@@ -487,11 +483,11 @@ function customCursor() {
         }, 100);
     });
 
-    if ($('.tagline p').hasClass('no-opacity')) {
-        cursorScroll.removeClass("no-opacity");
-    } else {
-        cursorScroll.addClass("no-opacity");
-    }
+    // if ($('.tagline p').hasClass('no-opacity')) {
+    //     cursorScroll.removeClass("no-opacity");
+    // } else {
+    //     cursorScroll.addClass("no-opacity");
+    // }
 
 
 // set the starting position of the cursor outside of the screen
