@@ -370,6 +370,7 @@ This is the controls for each Section.
     color: #ffffff00;
     font-weight: 300;
     letter-spacing: -15vW;
+    -webkit-letter-spacing: -15vw;
 }
 /* .pat-one .variable span {
     margin: -10vw ; 
