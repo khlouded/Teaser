@@ -516,7 +516,5 @@ $(window).resize(function() {
     navScroll();
     navOpen();
     strokeFont();
-    ranFont();    
-    ranColor();
-    
+    ranFont();        
 });
