@@ -39,6 +39,7 @@ Instructional Notes
 }
 @font-face {
     font-family: "Helvetica";
+    src: url("../fnts/helvetica/helveticaneue-light.woff2");
     src: url("../fnts/helvetica/Helvetica-Light.woff");
     src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf"); 
 }
