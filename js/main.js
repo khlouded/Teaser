@@ -229,7 +229,7 @@ function ranFont() {
     // Helvetica Neue TESTING HERE CHANGE AFTER
 
     $(".variable span").each(function(){
-        var helvetica = "Helvetica Neue"; // check to see what it is actually called once we get the fonts
+        var helvetica = "Helvetica"; // check to see what it is actually called once we get the fonts
         var parabole = 'Parabole Regular';
         var fonts = [helvetica, parabole]; //an array with the different possible fonts
         var randomFont = fonts[Math.floor(Math.random()*fonts.length)]; //This spits out a random choice between helvetica and parabole
@@ -238,7 +238,7 @@ function ranFont() {
         // console.log(size);
         currentElement.css("font-family", randomFont + ", sans serif");//This sets the css property with the randomFont. The bread and butter of the function
 
-        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans serif" || currentElement.css("font-family") == "Helvetica, sans serif" || currentElement.css("font-family") == "\"Helvetica\", sans serif"  ) {
+        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans-serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\", \"sans-serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", sans serif" || currentElement.css("font-family") == "Helvetica Neue, sans-serif" || currentElement.css("font-family") == "Helvetica, sans-serif" || currentElement.css("font-family") == "\"Helvetica\", sans-serif"  || currentElement.css("font-family") == "\'Helvetica\', sans-serif" ) {
             // console.log("Helvetica");
             currentElement.css({'font-size':"calc( " + size + " * 0.98)"});
         } else {
@@ -491,6 +491,22 @@ function customCursor() {
 
 
 // set the starting position of the cursor outside of the screen
+}
+function macResponse() {
+
+var mac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
+
+if (mac) {
+    $('.pat-one .comp h1').css({
+        'letter-spacing': '0',
+        '-webkit-letter-spacing': '0vw'
+    });		
+} else {
+    $('.pat-one .comp h1').css({
+        'letter-spacing': '-15vw',
+        '-webkit-letter-spacing': '-15vw'
+    });		
+}
 }
 //The reason why we set everything as a function and used these is to ensure that we check the scroll position before we load the page, in order to load the transformations accordingly
 $(window).scroll(function() {
