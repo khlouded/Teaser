@@ -831,14 +831,9 @@ p.cursor-text {
         justify-self: start;
         align-self: start;
     }
-    .pat-four .mail-box {
+    .pat-four .college {
         grid-row: addtop;
         grid-column: left;
-        align-self: end;
-        justify-self: end;
-    }
-    .pat-four .mail {
-        margin-right: 0;
         align-self: end;
     }
     .pat-four .date {
@@ -846,6 +841,7 @@ p.cursor-text {
         grid-row: date;
         padding-bottom: 0;
         grid-column: left;
+        justify-self: start;
         align-self: end;
     }
 }
