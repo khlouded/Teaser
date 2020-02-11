@@ -39,9 +39,10 @@ Instructional Notes
 }
 @font-face {
     font-family: "Helvetica";
-    src: url("../fnts/helvetica/helveticaneue-light.woff2");
-    src: url("../fnts/helvetica/Helvetica-Light.woff");
-    src: url("../fnts/helvetica/HelveticaNeueLTStd-Lt.otf"); 
+    src: url("../fnts/helvetica_edit/helvetica_light.eot");
+    src: url("../fnts/helvetica_edit/helvetica_light.svg");
+    src: url("../fnts/helvetica_edit/helvetica_light.woff");
+    src: url("../fnts/helvetica_edit/helvetica_light.woff2");
 }
 /* Main Layout and init resizing */
 body {
