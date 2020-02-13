@@ -38,7 +38,10 @@ Instructional Notes
     src: url("../fnts/Parabole-Regular.otf");
 }
 @font-face {
-    font-family: "Helvetica";
+    font-family: "Helvetica URL";
+    
+    
+    src: local("HelveticaNeue.ttc");
     src: url("../fnts/helvetica_edit/helvetica_light.eot");
     src: url("../fnts/helvetica_edit/helvetica_light.svg");
     src: url("../fnts/helvetica_edit/helvetica_light.woff");
@@ -63,8 +66,7 @@ body {
     padding: 0;
     background: #000;
     color: #fff;
-    font-family: 'Helvetica', sans-serif;
-
+    font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica URL", Helvetica, "open sans", sans-serif;
     font-weight: 300;
     font-size: 2em;
     box-sizing: border-box;
@@ -285,7 +287,7 @@ This is the controls for each Section.
 .section {
     display: flex;
     visibility: hidden;
-    height: 180vW;
+    height: 220vW;
     min-height: 200vW;
     max-width: 100%;
     pointer-events: none;
@@ -370,12 +372,12 @@ This is the controls for each Section.
     -webkit-text-stroke: .5px #fff;
     color: #ffffff00;
     font-weight: 300;
-    letter-spacing: -15vW;
-    -webkit-letter-spacing: -15vw;
+    /* letter-spacing: -7vW;
+    -webkit-letter-spacing: -7vw; */
 }
-/* .pat-one .variable span {
-    margin: -10vw ; 
-} */
+.pat-one .variable span {
+    margin: -7vw ; 
+}
 
 /* Section Two */
 .pat-two {
