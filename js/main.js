@@ -498,10 +498,10 @@ function macResponse() {
 
     if (mac) {
         $('.pat-one .variable span').css({
-            'margin': '-3vw',
+            'margin': '-5vw',
         });		
         $('.pat-three .variable span').css({
-            'margin': '-0vw',
+            'margin': '-2vw',
         });		
     } else {
         $('.pat-one .variable span').css({
