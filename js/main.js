@@ -228,6 +228,9 @@ function ranFont() {
     
     // Helvetica Neue TESTING HERE CHANGE AFTER
 
+    // Change on mac
+    
+
     $(".variable span").each(function(){
         var helvetica = 'Helvetica URL'; // check to see what it is actually called once we get the fonts
         var parabole = 'Parabole Regular';
@@ -236,9 +239,16 @@ function ranFont() {
         var currentElement = $(this); //this targets every current element, and iterates it from the first to the last. Since we used lettery
         var size = currentElement.css("font-size"); // this gets the size of the element so that we can manipulate it later
         // console.log(size);
-        currentElement.css("font-family", randomFont + ", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
+        var mac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 
-        if (currentElement.css("font-family") == "\"Helvetica Neue Lt Std\",\"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", \"sans-serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\",\"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", \"sans-serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\",  sans serif" || currentElement.css("font-family") == "\"Helvetica Neue\", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\",  sans-serif" || currentElement.css("font-family") == "Helvetica, \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif" || currentElement.css("font-family") == "\"Helvetica\", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif"  || currentElement.css("font-family") == "\"Helvetica Neue\", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif"  || currentElement.css("font-family") == "\"HelveticaNeue-Light\", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\",sans-serif"  || currentElement.css("font-family") == "\'Helvetica\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif" || currentElement.css("font-family") == "\"Helvetica Neue Lt Std\", \"sans-serif\"" || currentElement.css("font-family") == "\"Helvetica Neue\",   \"sans-serif\"" ||currentElement.css("font-family") == "\"Helvetica Neue\",  sans serif" || currentElement.css("font-family") == "\"Helvetica Neue\",  sans-serif" || currentElement.css("font-family") == "Helvetica, sans-serif" || currentElement.css("font-family") == "\"Helvetica\",  sans-serif"  || currentElement.css("font-family") == "\'Helvetica\',  sans-serif" || currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", \"Helvetica URL\", Helvetica, \"open sans\", sans-serif" ) {
+        if (mac) {
+            currentElement.css("font-family", ", \"Helvetica Neue\"," + randomFont + "\"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, \"open sans\", sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
+        } else {
+            currentElement.css("font-family", randomFont + ", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
+        }
+
+        if (currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, \"sans-serif\"" || currentElement.css("font-family") == "\"Helvetica URL\", \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica Neue\', \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif"
+        || currentElement.css("font-family") == "\"Helvetica Neue\", \"Helvetica URL\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif") {
             // console.log("Helvetica");
             currentElement.css({'font-size':"calc( " + size + " * 0.98)"});
         } else {
