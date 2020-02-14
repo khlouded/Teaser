@@ -250,7 +250,7 @@ function ranFont() {
         if (currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, \"sans-serif\"" || currentElement.css("font-family") == "\"Helvetica URL\", \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica URL\', \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif" || currentElement.css("font-family") == "\'Helvetica Neue\', \"Helvetica Neue\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif"
         || currentElement.css("font-family") == "\"Helvetica Neue\", \"Helvetica URL\", \"Helvetica Neue Light\", HelveticaNeue-Light, Helvetica, Roboto, sans-serif") {
             // console.log("Helvetica");
-            currentElement.css({'font-size':"calc( " + size + " * 0.98)"});
+            currentElement.css({'font-size':"calc( " + size + " * 0.981)"});
         } else {
             currentElement.css('font-size',size);
             // console.log("Parabole")
