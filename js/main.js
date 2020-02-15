@@ -242,7 +242,7 @@ function ranFont() {
         var mac = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 
         if (mac) {
-            currentElement.css("font-family", randomFont + ", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, \"open sans\", sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
+            currentElement.css("font-family", randomFont + ", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
         } else {
             currentElement.css("font-family", randomFont + ", \"Helvetica Neue\", \"Helvetica Neue Light\", \"HelveticaNeue-Light\", Helvetica, Roboto, sans-serif");//This sets the css property with the randomFont. The bread and butter of the function
         }
