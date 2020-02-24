@@ -553,6 +553,8 @@ This is the controls for each Section.
 }
 .pat-four .date p {
     padding: 0;
+    display: inline-block;
+    margin-left: 20px;
 }
 .pat-four .com-center {
     font-size: 9vw;
