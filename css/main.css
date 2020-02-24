@@ -248,6 +248,9 @@ nav {
     margin: 0;
     padding: 0;
 }
+.date > p:first-child {
+    margin-bottom: 30px;
+}
 .module .compliant {
     align-self: end;
     margin: 0;
@@ -554,7 +557,7 @@ This is the controls for each Section.
 .pat-four .date p {
     padding: 0;
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 .pat-four .com-center {
     font-size: 9vw;
@@ -565,6 +568,17 @@ This is the controls for each Section.
     transform: translateX(0);
     margin: 0;
     z-index: -10;
+
+}
+.pat-four .location p {
+    margin-right: 30px;
+    display: inline-block;
+}
+.pat-four .location {
+    align-self: start;
+}
+.pat-four .social-content p {
+    display: inline-block;
 }
 .com-center h1 {
     margin: 0;  
@@ -698,6 +712,7 @@ p.cursor-text {
     padding: 0;
     transition: opacity .5s, font-size .5s;
 }
+
 /* This inverts the color of the screen */
 .invert {
     position: fixed;
